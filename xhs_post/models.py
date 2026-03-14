@@ -12,3 +12,10 @@ class TopicWorkflowRequest:
     generation_output: Path | None = None
     seed: int | None = None
 
+
+@dataclass(slots=True)
+class MultiAccountWorkflowRequest:
+    topic: str
+    input_path: Path
+    output_dir: Path
+    personas_dir: Path
