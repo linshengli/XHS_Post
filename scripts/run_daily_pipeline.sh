@@ -22,7 +22,8 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # 路径配置
-BASE_DIR="$HOME/XHS_Post"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BASE_DIR="${XHS_POST_BASE_DIR:-$(cd "$SCRIPT_DIR/.." && pwd)}"
 SCRIPTS_DIR="$BASE_DIR/scripts"
 CONFIG_DIR="$BASE_DIR/config"
 LOG_FILE="$BASE_DIR/logs/pipeline_$(date +%Y-%m-%d_%H%M%S).log"
@@ -79,7 +80,7 @@ main() {
     print_info "步骤 1/2: 分析热门内容特征（主题：$TOPIC）"
     echo "============================================================"
     if [ -f "$SCRIPTS_DIR/02_analyze_trending.py" ]; then
-        python3 "$SCRIPTS_DIR/02_analyze_trending.py" --topic "$TOPIC" 2>&1 | tee -a "$LOG_FILE"
+        XHS_POST_BASE_DIR="$BASE_DIR" python3 "$SCRIPTS_DIR/02_analyze_trending.py" --topic "$TOPIC" 2>&1 | tee -a "$LOG_FILE"
         if [ ${PIPESTATUS[0]} -eq 0 ]; then
             print_success "热门分析完成"
         else
@@ -97,7 +98,7 @@ main() {
         print_info "步骤 2/2: 多账号差异化内容生成"
         echo "============================================================"
         if [ -f "$SCRIPTS_DIR/03_multi_account_orchestrator.py" ]; then
-            python3 "$SCRIPTS_DIR/03_multi_account_orchestrator.py" --topic "$TOPIC" 2>&1 | tee -a "$LOG_FILE"
+            XHS_POST_BASE_DIR="$BASE_DIR" python3 "$SCRIPTS_DIR/03_multi_account_orchestrator.py" --topic "$TOPIC" 2>&1 | tee -a "$LOG_FILE"
             if [ ${PIPESTATUS[0]} -eq 0 ]; then
                 print_success "多账号内容生成完成"
             else
@@ -112,7 +113,7 @@ main() {
         print_info "步骤 2/2: 生成 10 篇小红书笔记（单账号模式）"
         echo "============================================================"
         if [ -f "$SCRIPTS_DIR/03_generate_posts.py" ]; then
-            python3 "$SCRIPTS_DIR/03_generate_posts.py" --topic "$TOPIC" --count 10 2>&1 | tee -a "$LOG_FILE"
+            XHS_POST_BASE_DIR="$BASE_DIR" python3 "$SCRIPTS_DIR/03_generate_posts.py" --topic "$TOPIC" --count 10 2>&1 | tee -a "$LOG_FILE"
             if [ ${PIPESTATUS[0]} -eq 0 ]; then
                 print_success "笔记生成完成"
             else

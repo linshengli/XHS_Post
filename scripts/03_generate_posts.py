@@ -35,8 +35,10 @@ from datetime import datetime
 import hashlib
 import re
 
+from _project_paths import resolve_base_dir
+
 # 配置路径
-BASE_DIR = Path(os.path.expanduser("~/XHS_Post"))
+BASE_DIR = resolve_base_dir()
 INPUT_DIR = BASE_DIR / "xhs_post_from_search" / "jsonl"
 TRENDING_ANALYSIS_FILE = BASE_DIR / "config" / "trending_analysis.json"
 STATE_FILE = BASE_DIR / "config" / "generation_state.json"
@@ -99,6 +101,44 @@ def filter_posts_by_topic(posts: list, keywords: list) -> list:
 
         # 并且包含任何扩展关键词
         if any(kw in text for kw in keywords):
+            filtered.append(post)
+
+    return filtered
+
+
+def extract_core_topics(topic: str) -> list:
+    """提取主题的核心地点或主词，用于 source_keyword 匹配。"""
+    if '千岛湖' in topic:
+        return ['千岛湖']
+    if '西双版纳' in topic:
+        return ['西双版纳']
+    if '北京' in topic:
+        return ['北京']
+    if '上海' in topic:
+        return ['上海']
+    if '杭州' in topic:
+        return ['杭州']
+
+    return [topic[:2]]
+
+
+def filter_posts_by_source_keyword(posts: list, topic: str) -> list:
+    """按 source_keyword 和正文兜底匹配主题相关原始笔记。"""
+    filtered = []
+    core_topics = extract_core_topics(topic)
+
+    for post in posts:
+        source_keyword = post.get("source_keyword", "")
+        if source_keyword and any(core in source_keyword or source_keyword in core for core in core_topics):
+            filtered.append(post)
+            continue
+
+        text = (
+            post.get("title", "") + " " +
+            post.get("desc", "") + " " +
+            post.get("tag_list", "")
+        )
+        if any(core in text for core in core_topics):
             filtered.append(post)
 
     return filtered
@@ -966,10 +1006,17 @@ def main():
                         help='生成笔记数量（默认：10）')
     parser.add_argument('--output-dir', type=str, default=None,
                         help='输出目录（默认：~/XHS_Post/generated_posts/YYYY-MM-DD/）')
+    parser.add_argument('--input', type=str, default=None,
+                        help='热点分析结果路径（默认：config/trending_analysis.json）')
     parser.add_argument('--strict', action='store_true',
                         help='严格模式：无相关数据时报错退出（默认启用）')
+    parser.add_argument('--seed', type=int, default=None,
+                        help='随机种子（用于测试和复现）')
 
     args = parser.parse_args()
+
+    if args.seed is not None:
+        random.seed(args.seed)
 
     # 设置输出目录
     if args.output_dir:
@@ -977,6 +1024,7 @@ def main():
     else:
         today = datetime.now().strftime("%Y-%m-%d")
         output_dir = OUTPUT_DIR / today
+    trending_analysis_file = Path(args.input) if args.input else TRENDING_ANALYSIS_FILE
 
     print("=" * 60)
     print("📝 小红书笔记生成器 - 通用主题驱动模式")
@@ -990,7 +1038,7 @@ def main():
 
     # 加载数据
     print("\n📂 加载数据...")
-    trending_data = load_json(TRENDING_ANALYSIS_FILE)
+    trending_data = load_json(trending_analysis_file)
     state_data = load_json(STATE_FILE)
 
     # 检查分析数据是否存在且与主题匹配
@@ -1033,14 +1081,8 @@ def main():
         raw_posts = load_jsonl_files(INPUT_DIR)
 
         # 按 source_keyword 过滤原始数据
-        topic_raw_posts = []
-        for post in raw_posts:
-            source_kw = post.get('source_keyword', '')
-            if source_kw and args.topic in source_kw:
-                topic_raw_posts.append(post)
-
-        raw_posts = topic_raw_posts
-        print(f"  • 原始笔记总数：{len(raw_posts)} 篇（已按 source_keyword='{args.topic}' 过滤）")
+        raw_posts = filter_posts_by_source_keyword(raw_posts, args.topic)
+        print(f"  • 原始笔记总数：{len(raw_posts)} 篇（已按主题相关性过滤）")
 
     used_combinations = state_data.get('used_combinations', [])
     print(f"  • 已用组合：{len(used_combinations)} 个")
@@ -1095,7 +1137,8 @@ def main():
     for post in posts:
         print(f"  • {post['id']}.md - {' '.join(post['tags'][:3])}...")
 
-    print(f"\n💾 状态已更新：{STATE_FILE}")
+    print(f"\n💾 分析输入：{trending_analysis_file}")
+    print(f"💾 状态已更新：{STATE_FILE}")
     print(f"{'=' * 60}")
 
     return posts

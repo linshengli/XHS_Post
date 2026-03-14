@@ -22,8 +22,10 @@ from pathlib import Path
 from collections import Counter
 import re
 
+from _project_paths import resolve_base_dir
+
 # 配置路径
-BASE_DIR = Path(os.path.expanduser("~/XHS_Post"))
+BASE_DIR = resolve_base_dir()
 INPUT_DIR = BASE_DIR / "xhs_post_from_search" / "jsonl"
 OUTPUT_FILE = BASE_DIR / "config" / "trending_analysis.json"
 

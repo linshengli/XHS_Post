@@ -20,6 +20,10 @@ from pathlib import Path
 # 添加项目根目录到路径
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from scripts._project_paths import resolve_base_dir
+
+BASE_DIR = resolve_base_dir()
+
 def load_trending_analysis(config_path: str) -> dict:
     """加载热点分析结果"""
     with open(config_path, 'r', encoding='utf-8') as f:
@@ -220,12 +224,12 @@ def main():
     
     # 1. 加载热点分析结果
     print("\n1️⃣ 加载热点分析结果...")
-    trending_data = load_trending_analysis(args.input)
+    trending_data = load_trending_analysis(str((BASE_DIR / args.input).resolve()))
     print(f"   ✓ 分析了 {trending_data.get('total_posts_analyzed', 0)} 篇笔记")
     
     # 2. 加载人设配置
     print("\n2️⃣ 加载人设配置...")
-    personas = load_personas('config/personas')
+    personas = load_personas(str((BASE_DIR / 'config' / 'personas').resolve()))
     print(f"   ✓ 加载了 {len(personas)} 个人设")
     for p in personas:
         print(f"     - {p['account']['id']}: {p['persona']['name']}")
@@ -266,7 +270,7 @@ def main():
     # 7. 保存输出
     print("\n7️⃣ 保存输出...")
     today = datetime.now().strftime('%Y-%m-%d')
-    output_base = Path(args.output_dir) / today
+    output_base = (BASE_DIR / args.output_dir / today).resolve()
     output_base.mkdir(parents=True, exist_ok=True)
     
     for account_id, content_data in contents.items():
