@@ -26,8 +26,6 @@
   python scripts/03_generate_posts.py --topic "北京美食探店" --count 15
 """
 
-import os
-import json
 import random
 import argparse
 from pathlib import Path
@@ -35,7 +33,17 @@ from datetime import datetime
 import hashlib
 import re
 
-from _project_paths import resolve_base_dir
+from _project_paths import ensure_project_root_on_path, resolve_base_dir
+
+ensure_project_root_on_path()
+
+from xhs_post.storage import load_json, load_jsonl_files, save_json
+from xhs_post.topic import (
+    expand_keywords,
+    filter_posts_by_source_keyword,
+    filter_posts_by_topic,
+    parse_like_count,
+)
 
 # 配置路径
 BASE_DIR = resolve_base_dir()
@@ -43,119 +51,6 @@ INPUT_DIR = BASE_DIR / "xhs_post_from_search" / "jsonl"
 TRENDING_ANALYSIS_FILE = BASE_DIR / "config" / "trending_analysis.json"
 STATE_FILE = BASE_DIR / "config" / "generation_state.json"
 OUTPUT_DIR = BASE_DIR / "generated_posts"
-
-# 内置关键词映射表（与 02_analyze_trending.py 保持一致）
-KEYWORD_EXPANSION = {
-    "亲子": ["亲子", "带娃", "遛娃", "儿童", "小朋友", "宝妈", "宝宝", "家庭", "孩子", "小孩"],
-    "酒店": ["酒店", "住宿", "民宿", "度假村", "宾馆", "入住", "客房", "房型"],
-    "骑行": ["骑行", "自行车", "绿道", "骑车", "单车", "山地车", "公路车", "骑行路线"],
-    "美食": ["美食", "餐厅", "小吃", "吃饭", "探店", "打卡", "美食推荐", "当地美食", "特色菜"],
-    "攻略": ["攻略", "指南", "路线", "玩法", "推荐", "教程", "必看", "超全", "详细"],
-    "旅游": ["旅游", "旅行", "游玩", "景点", "景区", "打卡地", "目的地", "出游"],
-    "户外": ["户外", "露营", "徒步", "爬山", "自然", "野外", "露营基地"],
-    "摄影": ["摄影", "拍照", "出片", "机位", "写真", "约拍", "摄影技巧"],
-    "购物": ["购物", "买买买", "商场", "集市", "特产", "伴手礼", " shopping"],
-    "交通": ["交通", "地铁", "公交", "高铁", "机场", "自驾", "停车", "租车"],
-}
-
-
-def expand_keywords(topic: str) -> list:
-    """为主题自动扩展关键词"""
-    keywords = []
-
-    for key, values in KEYWORD_EXPANSION.items():
-        if key in topic:
-            keywords.extend(values)
-
-    topic_words = re.split(r'[,\s]+', topic)
-    keywords.extend(topic_words)
-
-    return list(set(keywords))
-
-
-def filter_posts_by_topic(posts: list, keywords: list) -> list:
-    """筛选与主题相关的笔记
-
-    使用严格模式：必须包含主题的核心词（地名/主要事物），而不仅仅是通用词如"攻略"、"推荐"
-    """
-    filtered = []
-
-    # 通用词（不单独作为筛选依据）
-    generic_words = {'攻略', '指南', '推荐', '教程', '分享', '心得', '体验', '日记', '玩法', '超全', '详细', '必看', '路线'}
-
-    # 核心词是排除通用词后的关键词
-    core_keywords = [kw for kw in keywords if kw not in generic_words and len(kw) > 1]
-
-    for post in posts:
-        # 检查标题、正文、标签
-        text = (
-            post.get("title", "") + " " +
-            post.get("desc", "") + " " +
-            post.get("tag_list", "")
-        )
-
-        # 必须包含至少一个核心关键词
-        has_core = any(kw in text for kw in core_keywords)
-        if not has_core:
-            continue
-
-        # 并且包含任何扩展关键词
-        if any(kw in text for kw in keywords):
-            filtered.append(post)
-
-    return filtered
-
-
-def extract_core_topics(topic: str) -> list:
-    """提取主题的核心地点或主词，用于 source_keyword 匹配。"""
-    if '千岛湖' in topic:
-        return ['千岛湖']
-    if '西双版纳' in topic:
-        return ['西双版纳']
-    if '北京' in topic:
-        return ['北京']
-    if '上海' in topic:
-        return ['上海']
-    if '杭州' in topic:
-        return ['杭州']
-
-    return [topic[:2]]
-
-
-def filter_posts_by_source_keyword(posts: list, topic: str) -> list:
-    """按 source_keyword 和正文兜底匹配主题相关原始笔记。"""
-    filtered = []
-    core_topics = extract_core_topics(topic)
-
-    for post in posts:
-        source_keyword = post.get("source_keyword", "")
-        if source_keyword and any(core in source_keyword or source_keyword in core for core in core_topics):
-            filtered.append(post)
-            continue
-
-        text = (
-            post.get("title", "") + " " +
-            post.get("desc", "") + " " +
-            post.get("tag_list", "")
-        )
-        if any(core in text for core in core_topics):
-            filtered.append(post)
-
-    return filtered
-
-
-def parse_like_count(like_str: str) -> int:
-    """解析点赞数字符串"""
-    if not like_str:
-        return 0
-    try:
-        if "万" in like_str:
-            num_str = like_str.replace("万", "").strip()
-            return int(float(num_str) * 10000)
-        return int(like_str)
-    except (ValueError, TypeError):
-        return 0
-
 
 # 爆款标题公式 - 通用版
 TITLE_TEMPLATES = {
@@ -239,28 +134,6 @@ CONTENT_STRUCTURE = {
         "欢迎评论区分享你的经验～"
     ]
 }
-
-
-def load_jsonl_files(input_dir: Path) -> list:
-    """加载原始 JSONL 数据"""
-    posts = []
-
-    if not input_dir.exists():
-        return posts
-
-    for file_path in input_dir.glob("*.jsonl"):
-        with open(file_path, 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
-                if line:
-                    try:
-                        post = json.loads(line)
-                        posts.append(post)
-                    except json.JSONDecodeError:
-                        continue
-
-    return posts
-
 
 def extract_topic_features(topic: str, raw_posts: list) -> dict:
     """从原始数据中提取主题特征"""
@@ -851,23 +724,6 @@ def generate_tags(topic: str, features: dict, topic_keywords: list = None) -> li
             break
 
     return tags
-
-
-def load_json(file_path: Path) -> dict:
-    """加载 JSON 文件"""
-    if not file_path.exists():
-        return {}
-
-    with open(file_path, 'r', encoding='utf-8') as f:
-        return json.load(f)
-
-
-def save_json(file_path: Path, data: dict):
-    """保存 JSON 文件"""
-    file_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(file_path, 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-
 
 def generate_unique_id(content: str) -> str:
     """生成内容唯一标识"""

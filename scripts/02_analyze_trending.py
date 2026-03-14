@@ -15,14 +15,23 @@
   python scripts/02_analyze_trending.py --topic "北京美食探店"
 """
 
-import os
 import json
 import argparse
 from pathlib import Path
 from collections import Counter
 import re
 
-from _project_paths import resolve_base_dir
+from _project_paths import ensure_project_root_on_path, resolve_base_dir
+
+ensure_project_root_on_path()
+
+from xhs_post.storage import load_jsonl_files
+from xhs_post.topic import (
+    expand_keywords,
+    filter_posts_by_source_keyword,
+    filter_posts_by_topic,
+    parse_like_count,
+)
 
 # 配置路径
 BASE_DIR = resolve_base_dir()
@@ -31,142 +40,6 @@ OUTPUT_FILE = BASE_DIR / "config" / "trending_analysis.json"
 
 # 高赞阈值
 HIGH_LIKE_THRESHOLD = 3000
-
-# 内置关键词映射表
-KEYWORD_EXPANSION = {
-    "亲子": ["亲子", "带娃", "遛娃", "儿童", "小朋友", "宝妈", "宝宝", "家庭", "孩子", "小孩"],
-    "住宿": ["住宿", "酒店", "民宿", "度假村", "宾馆", "客栈", "公寓", "入住"],
-    "酒店": ["酒店", "住宿", "民宿", "度假村", "宾馆", "入住", "客房", "房型"],
-    "骑行": ["骑行", "自行车", "绿道", "骑车", "单车", "山地车", "公路车", "骑行路线"],
-    "美食": ["美食", "餐厅", "小吃", "吃饭", "探店", "打卡", "美食推荐", "当地美食", "特色菜"],
-    "攻略": ["攻略", "指南", "路线", "玩法", "推荐", "教程", "必看", "超全", "详细"],
-    "旅游": ["旅游", "旅行", "游玩", "景点", "景区", "打卡地", "目的地", "出游"],
-    "户外": ["户外", "露营", "徒步", "爬山", "自然", "野外", "露营基地"],
-    "摄影": ["摄影", "拍照", "出片", "机位", "写真", "约拍", "摄影技巧"],
-    "购物": ["购物", "买买买", "商场", "集市", "特产", "伴手礼", " shopping"],
-    "交通": ["交通", "地铁", "公交", "高铁", "机场", "自驾", "停车", "租车"],
-}
-
-
-def expand_keywords(topic: str) -> list:
-    """为主题自动扩展关键词"""
-    keywords = []
-    
-    # 从映射表中扩展
-    for key, values in KEYWORD_EXPANSION.items():
-        if key in topic:
-            keywords.extend(values)
-    
-    # 添加主题原词（按空格或常见分隔符拆分）
-    topic_words = re.split(r'[,\s]+', topic)
-    keywords.extend(topic_words)
-    
-    # 去重
-    return list(set(keywords))
-
-
-def filter_posts_by_source_keyword(posts: list, topic: str) -> list:
-    """按 source_keyword 过滤笔记 - 这是最可靠的主题匹配方式
-    
-    爬虫在抓取数据时会记录 source_keyword（搜索关键词）
-    例如：搜索"千岛湖"时，所有抓取的笔记 source_keyword 都是"千岛湖"
-    """
-    filtered = []
-    topic_lower = topic.lower()
-    
-    # 从 topic 中提取核心地名/主题词
-    # 例如 "千岛湖亲子酒店" → ["千岛湖"]
-    # 例如 "北京美食探店" → ["北京"]
-    core_topics = []
-    
-    # 常见地名/主题词提取（可扩展）
-    # 优先匹配长词
-    if '千岛湖' in topic:
-        core_topics.append('千岛湖')
-    elif '西双版纳' in topic:
-        core_topics.append('西双版纳')
-    elif '北京' in topic:
-        core_topics.append('北京')
-    elif '上海' in topic:
-        core_topics.append('上海')
-    elif '杭州' in topic:
-        core_topics.append('杭州')
-    else:
-        # 如果没有匹配到预设地名，使用 topic 的前两个字作为核心词
-        # 例如 "美食探店" → "美食"
-        core_topics.append(topic[:2])
-    
-    for post in posts:
-        source_keyword = post.get('source_keyword', '')
-        
-        # 优先使用 source_keyword 匹配
-        if source_keyword:
-            source_lower = source_keyword.lower()
-            # 检查 source_keyword 是否包含核心主题词
-            if any(core in source_lower or source_lower in core for core in core_topics):
-                filtered.append(post)
-                continue
-        
-        # 如果 source_keyword 为空或不匹配，回退到内容匹配
-        text = (
-            post.get("title", "") + " " +
-            post.get("desc", "") + " " +
-            post.get("tag_list", "")
-        )
-        
-        if any(core in text for core in core_topics):
-            filtered.append(post)
-    
-    return filtered
-
-
-def filter_posts_by_topic(posts: list, keywords: list) -> list:
-    """筛选与主题相关的笔记（在 source_keyword 过滤后的二次筛选）
-    
-    使用严格模式：必须包含主题的核心词（地名/主要事物），而不仅仅是通用词如"攻略"、"推荐"
-    """
-    filtered = []
-    
-    # 通用词（不单独作为筛选依据）
-    generic_words = {'攻略', '指南', '推荐', '教程', '分享', '心得', '体验', '日记', '玩法', '超全', '详细', '必看', '路线'}
-    
-    # 核心词是排除通用词后的关键词
-    core_keywords = [kw for kw in keywords if kw not in generic_words and len(kw) > 1]
-    
-    for post in posts:
-        # 检查标题、正文、标签
-        text = (
-            post.get("title", "") + " " +
-            post.get("desc", "") + " " +
-            post.get("tag_list", "")
-        )
-        
-        # 必须包含至少一个核心关键词
-        has_core = any(kw in text for kw in core_keywords)
-        if not has_core:
-            continue
-        
-        # 并且包含任何扩展关键词
-        if any(kw in text for kw in keywords):
-            filtered.append(post)
-    
-    return filtered
-
-
-def parse_like_count(like_str: str) -> int:
-    """解析点赞数字符串（支持 '8.1 万' 格式）"""
-    if not like_str:
-        return 0
-    try:
-        # 处理 "8.1 万" 格式
-        if "万" in like_str:
-            num_str = like_str.replace("万", "").strip()
-            return int(float(num_str) * 10000)
-        # 处理纯数字
-        return int(like_str)
-    except (ValueError, TypeError):
-        return 0
-
 
 def parse_tags(tag_string: str) -> list:
     """解析标签字符串为列表"""
@@ -474,30 +347,6 @@ def analyze_trending_posts(posts: list, topic: str) -> dict:
     
     return analysis
 
-
-def load_jsonl_files(input_dir: Path) -> list:
-    """加载目录下所有 JSONL 文件"""
-    posts = []
-    
-    if not input_dir.exists():
-        print(f"⚠️  输入目录不存在：{input_dir}")
-        return posts
-    
-    for file_path in input_dir.glob("*.jsonl"):
-        print(f"  加载：{file_path.name}")
-        with open(file_path, 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
-                if line:
-                    try:
-                        post = json.loads(line)
-                        posts.append(post)
-                    except json.JSONDecodeError as e:
-                        print(f"⚠️  JSON 解析错误：{e}")
-    
-    return posts
-
-
 def main():
     # 解析命令行参数
     parser = argparse.ArgumentParser(description='小红书热门内容分析工具 - 支持主题筛选')
@@ -531,7 +380,9 @@ def main():
     # 加载数据
     print(f"\n📂 加载数据：{INPUT_DIR}/*.jsonl")
     posts = load_jsonl_files(INPUT_DIR)
-    
+    for file_path in sorted(INPUT_DIR.glob("*.jsonl")):
+        print(f"  加载：{file_path.name}")
+
     if not posts:
         print("❌ 未找到任何数据")
         return None
