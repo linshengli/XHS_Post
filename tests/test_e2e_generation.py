@@ -70,3 +70,28 @@ def test_e2e_generation_for_requested_topics(tmp_path: Path):
         generated_files = sorted(output_dir.glob("*.md"))
         assert len(generated_files) == 2
         assert topic in generated_files[0].read_text(encoding="utf-8")
+
+
+def test_topic_workflow_entrypoint_runs_end_to_end(tmp_path: Path):
+    write_test_repo(tmp_path)
+    env = os.environ | {"XHS_POST_BASE_DIR": str(tmp_path)}
+    output_dir = tmp_path / "generated_posts" / "workflow"
+    analysis_output = tmp_path / "config" / "workflow.json"
+
+    run_script(
+        "06_run_topic_workflow.py",
+        "--topic",
+        "千岛湖旅游攻略",
+        "--count",
+        "1",
+        "--seed",
+        "9",
+        "--analysis-output",
+        str(analysis_output),
+        "--generation-output",
+        str(output_dir),
+        env=env,
+    )
+
+    assert analysis_output.exists()
+    assert len(list(output_dir.glob("*.md"))) == 1
