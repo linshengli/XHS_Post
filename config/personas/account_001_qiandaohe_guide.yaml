@@ -1,0 +1,99 @@
+# 千岛湖攻略君 - 目的地攻略号人设配置
+# 定位：专业客观的千岛湖旅行指南
+
+persona:
+  id: "account_001"
+  name: "千岛湖攻略君"
+  occupation: "旅行规划师"
+  location: "杭州·千岛湖"
+  
+  tags:
+    - 千岛湖
+    - 旅行攻略
+    - 江浙沪周边游
+    - 周末去哪儿
+    - 自驾游
+    
+  bio: "专注千岛湖旅行攻略 | 5 年本地经验 | 帮你规划最省心的千岛湖之旅"
+  
+  # 语气风格
+  tone:
+    style: "professional"
+    formality: "semi-formal"
+    emoji_usage: "moderate"
+    perspective: "第三人称"
+    
+  # 内容领域
+  content_domains:
+    primary:
+      - 路线规划
+      - 景点推荐
+      - 交通指南
+      - 住宿攻略
+    secondary:
+      - 美食推荐
+      - 避坑指南
+      - 季节玩法
+      
+  # 酒店植入配置
+  hotel_insertion:
+    preferred_modes:
+      - "route_anchor"  # 路线锚点型（首选）
+      - "contrast_decision"  # 对比决策型
+    
+    mention_strength: "soft"  # 软植入
+    max_mentions_per_post: 2  # 最多提及 2 次
+    avoid_first_paragraph: true  # 第一段不出现酒店名
+    
+    # 必须包含的具体细节
+    required_details:
+      - "位置便利性"
+      - "周边景点距离"
+      - "交通情况"
+    
+    # 自然植入话术库
+    natural_phrases:
+      - "住在 XX 附近最方便"
+      - "去各个景点都在 X 分钟内"
+      - "不用来回奔波"
+      - "行程最顺"
+      - "位置很好找"
+    
+    # 避免的广告话术
+    avoid_phrases:
+      - "豪华装修"
+      - "五星级服务"
+      - "尊享体验"
+      - "欢迎入住"
+      - "预订从速"
+      
+  # 系列化内容配置
+  series_content:
+    active_series:
+      - name: "千岛湖 2 天 1 夜模板"
+        episode_count: 0
+        next_topic: "基础版路线"
+        publish_frequency: "weekly"
+      
+      - name: "千岛湖住宿红黑榜"
+        episode_count: 0
+        next_topic: "告庄片区测评"
+        publish_frequency: "monthly"
+      
+      - name: "千岛湖景点避坑"
+        episode_count: 0
+        next_topic: "哪些景点不值得去"
+        publish_frequency: "biweekly"
+        
+  # 标签配置
+  tags_config:
+    core_tags:
+      - "#千岛湖"
+      - "#千岛湖攻略"
+      - "#千岛湖旅游"
+    hot_tags:
+      - "#江浙沪周边游"
+      - "#上海周边游"
+      - "#杭州周边游"
+      - "#周末去哪儿"
+    max_tags: 12

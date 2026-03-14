@@ -1,0 +1,1252 @@
+{
+  "total_images": 26,
+  "enhanced_images": [
+    {
+      "original": "XHS_Post/local_images/微信图片_20250121211120.jpg",
+      "enhanced": "XHS_Post/enhanced_images/enhanced_01_微信图片_20250121211120.jpg",
+      "improvement": "锐化 + 对比度提升"
+    },
+    {
+      "original": "XHS_Post/local_images/微信图片_202501212111192.jpg",
+      "enhanced": "XHS_Post/enhanced_images/enhanced_02_微信图片_202501212111192.jpg",
+      "improvement": "锐化 + 对比度提升"
+    },
+    {
+      "original": "XHS_Post/local_images/微信图片_20250121211117.jpg",
+      "enhanced": "XHS_Post/enhanced_images/enhanced_03_微信图片_20250121211117.jpg",
+      "improvement": "锐化 + 对比度提升"
+    },
+    {
+      "original": "XHS_Post/local_images/微信图片_20250121211118.jpg",
+      "enhanced": "XHS_Post/enhanced_images/enhanced_04_微信图片_20250121211118.jpg",
+      "improvement": "锐化 + 对比度提升"
+    },
+    {
+      "original": "XHS_Post/local_images/微信图片_20250121211116.jpg",
+      "enhanced": "XHS_Post/enhanced_images/enhanced_05_微信图片_20250121211116.jpg",
+      "improvement": "锐化 + 对比度提升"
+    },
+    {
+      "original": "XHS_Post/local_images/微信图片_202501212111201.jpg",
+      "enhanced": "XHS_Post/enhanced_images/enhanced_06_微信图片_202501212111201.jpg",
+      "improvement": "锐化 + 对比度提升"
+    },
+    {
+      "original": "XHS_Post/local_images/微信图片_202501212111191.jpg",
+      "enhanced": "XHS_Post/enhanced_images/enhanced_07_微信图片_202501212111191.jpg",
+      "improvement": "锐化 + 对比度提升"
+    },
+    {
+      "original": "XHS_Post/local_images/微信图片_202501212111181.jpg",
+      "enhanced": "XHS_Post/enhanced_images/enhanced_08_微信图片_202501212111181.jpg",
+      "improvement": "锐化 + 对比度提升"
+    },
+    {
+      "original": "XHS_Post/local_images/微信图片_20250121211110.jpg",
+      "enhanced": "XHS_Post/enhanced_images/enhanced_09_微信图片_20250121211110.jpg",
+      "improvement": "锐化 + 对比度提升"
+    },
+    {
+      "original": "XHS_Post/local_images/微信图片_202501212111152.jpg",
+      "enhanced": "XHS_Post/enhanced_images/enhanced_10_微信图片_202501212111152.jpg",
+      "improvement": "锐化 + 对比度提升"
+    }
+  ],
+  "ranked_results": [
+    {
+      "file": "XHS_Post/local_images/微信图片_20250121211120.jpg",
+      "sharpness": 1.78,
+      "complexity": {
+        "complexity_score": 1.79,
+        "edge_density": 0.0286,
+        "color_variance": 344.28,
+        "subject_prominence": 0.47,
+        "recommendation": "✅ 简洁明了，适合做封面"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 8.1,
+        "dimensions": "1889x1280",
+        "aspect_ratio": 1.476,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.24,
+        "resolution_score": 10,
+        "text_space_score": 10,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 文字空间充足，适合添加标题",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "生活记录",
+        "objects": [
+          "日常",
+          "人物"
+        ],
+        "colors": [
+          "多色",
+          "混合"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "日常分享",
+          "生活记录"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 5.93,
+      "recommendations": [
+        "🔍 清晰度较低，建议进行锐化处理",
+        "✅ 构图简洁，适合做封面",
+        "⚠️ 主题匹配度一般，建议配合文字说明",
+        "✅ 非常适合小红书风格"
+      ]
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_202501212111192.jpg",
+      "sharpness": 1.17,
+      "complexity": {
+        "complexity_score": 3.18,
+        "edge_density": 0.0159,
+        "color_variance": 628.58,
+        "subject_prominence": 1.61,
+        "recommendation": "⚠️ 内容适中，建议添加文字说明"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 7.93,
+        "dimensions": "1400x960",
+        "aspect_ratio": 1.458,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.42,
+        "resolution_score": 9.22,
+        "text_space_score": 10,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 文字空间充足，适合添加标题",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "生活记录",
+        "objects": [
+          "日常",
+          "人物"
+        ],
+        "colors": [
+          "多色",
+          "混合"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "日常分享",
+          "生活记录"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 5.48,
+      "recommendations": [
+        "🔍 清晰度较低，建议进行锐化处理",
+        "⚠️ 主题匹配度一般，建议配合文字说明"
+      ]
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_20250121211117.jpg",
+      "sharpness": 1.45,
+      "complexity": {
+        "complexity_score": 4.01,
+        "edge_density": 0.0203,
+        "color_variance": 792.18,
+        "subject_prominence": 1.25,
+        "recommendation": "⚠️ 内容适中，建议添加文字说明"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 8.0,
+        "dimensions": "1920x1280",
+        "aspect_ratio": 1.5,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.0,
+        "resolution_score": 10,
+        "text_space_score": 10,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 文字空间充足，适合添加标题",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "生活记录",
+        "objects": [
+          "日常",
+          "人物"
+        ],
+        "colors": [
+          "多色",
+          "混合"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "日常分享",
+          "生活记录"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 5.39,
+      "recommendations": [
+        "🔍 清晰度较低，建议进行锐化处理",
+        "⚠️ 主题匹配度一般，建议配合文字说明",
+        "✅ 非常适合小红书风格"
+      ]
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_20250121211118.jpg",
+      "sharpness": 1.12,
+      "complexity": {
+        "complexity_score": 4.04,
+        "edge_density": 0.0147,
+        "color_variance": 800.28,
+        "subject_prominence": 1.31,
+        "recommendation": "⚠️ 内容适中，建议添加文字说明"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 8.0,
+        "dimensions": "1920x1280",
+        "aspect_ratio": 1.5,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.0,
+        "resolution_score": 10,
+        "text_space_score": 10,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 文字空间充足，适合添加标题",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "生活记录",
+        "objects": [
+          "日常",
+          "人物"
+        ],
+        "colors": [
+          "多色",
+          "混合"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "日常分享",
+          "生活记录"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 5.32,
+      "recommendations": [
+        "🔍 清晰度较低，建议进行锐化处理",
+        "⚠️ 主题匹配度一般，建议配合文字说明",
+        "✅ 非常适合小红书风格"
+      ]
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_20250121211116.jpg",
+      "sharpness": 2.99,
+      "complexity": {
+        "complexity_score": 2.06,
+        "edge_density": 0.0393,
+        "color_variance": 391.37,
+        "subject_prominence": 0.64,
+        "recommendation": "✅ 简洁明了，适合做封面"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 5.0,
+        "dimensions": "1920x1280",
+        "aspect_ratio": 1.5,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.0,
+        "resolution_score": 10,
+        "text_space_score": 0.0,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 图片内容较满，建议留白区域添加标题文字",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "生活记录",
+        "objects": [
+          "日常",
+          "人物"
+        ],
+        "colors": [
+          "多色",
+          "混合"
+        ],
+        "mood": "中性",
+        "suitable_for": [
+          "日常分享",
+          "生活记录"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 5.19,
+      "recommendations": [
+        "🔍 清晰度较低，建议进行锐化处理",
+        "✅ 构图简洁，适合做封面",
+        "⚠️ 主题匹配度一般，建议配合文字说明",
+        "⚠️ 小红书适配度一般，建议调整"
+      ]
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_202501212111201.jpg",
+      "sharpness": 0.69,
+      "complexity": {
+        "complexity_score": 5.19,
+        "edge_density": 0.0192,
+        "color_variance": 1027.52,
+        "subject_prominence": 1.1,
+        "recommendation": "⚠️ 内容适中，建议添加文字说明"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 7.74,
+        "dimensions": "1498x962",
+        "aspect_ratio": 1.557,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 4.43,
+        "resolution_score": 9.88,
+        "text_space_score": 10,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 文字空间充足，适合添加标题",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "旅行度假",
+        "objects": [
+          "海洋",
+          "天空",
+          "水"
+        ],
+        "colors": [
+          "蓝色",
+          "青色"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "旅行笔记",
+          "风景分享"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 4.92,
+      "recommendations": [
+        "🔍 清晰度较低，建议进行锐化处理",
+        "⚠️ 主题匹配度一般，建议配合文字说明"
+      ]
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_202501212111191.jpg",
+      "sharpness": 2.19,
+      "complexity": {
+        "complexity_score": 6.35,
+        "edge_density": 0.0174,
+        "color_variance": 1261.07,
+        "subject_prominence": 0.4,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 6.43,
+        "dimensions": "1893x1280",
+        "aspect_ratio": 1.479,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.21,
+        "resolution_score": 10,
+        "text_space_score": 4.5,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 图片内容较满，建议留白区域添加标题文字",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "风光摄影",
+        "objects": [
+          "天空",
+          "自然"
+        ],
+        "colors": [
+          "白色",
+          "浅色"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "旅行笔记",
+          "风景分享"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 4.6,
+      "recommendations": [
+        "🔍 清晰度较低，建议进行锐化处理",
+        "🎯 内容较复杂，建议简化或裁剪",
+        "⚠️ 主题匹配度一般，建议配合文字说明"
+      ]
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_202501212111181.jpg",
+      "sharpness": 2.88,
+      "complexity": {
+        "complexity_score": 8.44,
+        "edge_density": 0.0238,
+        "color_variance": 1676.44,
+        "subject_prominence": 1.52,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 7.25,
+        "dimensions": "1920x1280",
+        "aspect_ratio": 1.5,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.0,
+        "resolution_score": 10,
+        "text_space_score": 7.5,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 文字空间充足，适合添加标题",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "生活记录",
+        "objects": [
+          "日常",
+          "人物"
+        ],
+        "colors": [
+          "多色",
+          "混合"
+        ],
+        "mood": "中性",
+        "suitable_for": [
+          "日常分享",
+          "生活记录"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 4.56,
+      "recommendations": [
+        "🔍 清晰度较低，建议进行锐化处理",
+        "🎯 内容较复杂，建议简化或裁剪",
+        "⚠️ 主题匹配度一般，建议配合文字说明"
+      ]
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_20250121211110.jpg",
+      "sharpness": 0.86,
+      "complexity": {
+        "complexity_score": 7.49,
+        "edge_density": 0.0175,
+        "color_variance": 1489.23,
+        "subject_prominence": 0.76,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 7.7,
+        "dimensions": "1920x1280",
+        "aspect_ratio": 1.5,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.0,
+        "resolution_score": 10,
+        "text_space_score": 9.0,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 文字空间充足，适合添加标题",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "生活记录",
+        "objects": [
+          "日常",
+          "人物"
+        ],
+        "colors": [
+          "多色",
+          "混合"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "日常分享",
+          "生活记录"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 4.48,
+      "recommendations": [
+        "🔍 清晰度较低，建议进行锐化处理",
+        "🎯 内容较复杂，建议简化或裁剪",
+        "⚠️ 主题匹配度一般，建议配合文字说明"
+      ]
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_202501212111152.jpg",
+      "sharpness": 2.84,
+      "complexity": {
+        "complexity_score": 5.51,
+        "edge_density": 0.0355,
+        "color_variance": 1084.42,
+        "subject_prominence": 1.09,
+        "recommendation": "⚠️ 内容适中，建议添加文字说明"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 5.0,
+        "dimensions": "1920x1280",
+        "aspect_ratio": 1.5,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.0,
+        "resolution_score": 10,
+        "text_space_score": 0.0,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 图片内容较满，建议留白区域添加标题文字",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "生活记录",
+        "objects": [
+          "日常",
+          "人物"
+        ],
+        "colors": [
+          "多色",
+          "混合"
+        ],
+        "mood": "中性",
+        "suitable_for": [
+          "日常分享",
+          "生活记录"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 4.47,
+      "recommendations": [
+        "🔍 清晰度较低，建议进行锐化处理",
+        "⚠️ 主题匹配度一般，建议配合文字说明",
+        "⚠️ 小红书适配度一般，建议调整"
+      ]
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_20250121211119.jpg",
+      "sharpness": 1.65,
+      "complexity": {
+        "complexity_score": 9.15,
+        "edge_density": 0.0235,
+        "color_variance": 1817.82,
+        "subject_prominence": 1.44,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 7.25,
+        "dimensions": "1920x1280",
+        "aspect_ratio": 1.5,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.0,
+        "resolution_score": 10,
+        "text_space_score": 7.5,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 文字空间充足，适合添加标题",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "生活记录",
+        "objects": [
+          "日常",
+          "人物"
+        ],
+        "colors": [
+          "多色",
+          "混合"
+        ],
+        "mood": "中性",
+        "suitable_for": [
+          "日常分享",
+          "生活记录"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 4.18,
+      "recommendations": []
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_202501212111111.jpg",
+      "sharpness": 2.98,
+      "complexity": {
+        "complexity_score": 10,
+        "edge_density": 0.0387,
+        "color_variance": 3446.61,
+        "subject_prominence": 0.56,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 6.74,
+        "dimensions": "1938x1280",
+        "aspect_ratio": 1.514,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 4.86,
+        "resolution_score": 10,
+        "text_space_score": 6.0,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "旅行度假",
+        "objects": [
+          "海洋",
+          "天空",
+          "水"
+        ],
+        "colors": [
+          "蓝色",
+          "青色"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "旅行笔记",
+          "风景分享"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 4.12,
+      "recommendations": []
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_20250121211112.jpg",
+      "sharpness": 2.59,
+      "complexity": {
+        "complexity_score": 10,
+        "edge_density": 0.0344,
+        "color_variance": 5913.49,
+        "subject_prominence": 0.47,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 6.64,
+        "dimensions": "1440x960",
+        "aspect_ratio": 1.5,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.0,
+        "resolution_score": 9.48,
+        "text_space_score": 6.0,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "自然风光",
+        "objects": [
+          "植物",
+          "森林",
+          "草地"
+        ],
+        "colors": [
+          "绿色",
+          "自然色"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "旅行笔记",
+          "风景分享"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 4.01,
+      "recommendations": []
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_20250121211013.jpg",
+      "sharpness": 3.07,
+      "complexity": {
+        "complexity_score": 10,
+        "edge_density": 0.0426,
+        "color_variance": 6328.32,
+        "subject_prominence": 0.8,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 5.72,
+        "dimensions": "1979x1280",
+        "aspect_ratio": 1.546,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 4.54,
+        "resolution_score": 10,
+        "text_space_score": 3.0,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 图片内容较满，建议留白区域添加标题文字",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "自然风光",
+        "objects": [
+          "植物",
+          "森林",
+          "草地"
+        ],
+        "colors": [
+          "绿色",
+          "自然色"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "旅行笔记",
+          "风景分享"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 3.83,
+      "recommendations": []
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_202501212111121.jpg",
+      "sharpness": 0.94,
+      "complexity": {
+        "complexity_score": 10,
+        "edge_density": 0.0199,
+        "color_variance": 2927.08,
+        "subject_prominence": 1.75,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 7.09,
+        "dimensions": "1440x960",
+        "aspect_ratio": 1.5,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.0,
+        "resolution_score": 9.48,
+        "text_space_score": 7.5,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 文字空间充足，适合添加标题",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "生活记录",
+        "objects": [
+          "日常",
+          "人物"
+        ],
+        "colors": [
+          "多色",
+          "混合"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "日常分享",
+          "生活记录"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 3.82,
+      "recommendations": []
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_202501212111141.jpg",
+      "sharpness": 2.73,
+      "complexity": {
+        "complexity_score": 10,
+        "edge_density": 0.0382,
+        "color_variance": 5701.21,
+        "subject_prominence": 1.18,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 5.9,
+        "dimensions": "1920x1280",
+        "aspect_ratio": 1.5,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.0,
+        "resolution_score": 10,
+        "text_space_score": 3.0,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 图片内容较满，建议留白区域添加标题文字",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "自然风光",
+        "objects": [
+          "植物",
+          "森林",
+          "草地"
+        ],
+        "colors": [
+          "绿色",
+          "自然色"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "旅行笔记",
+          "风景分享"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 3.82,
+      "recommendations": []
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_20250121204937.jpg",
+      "sharpness": 3.0,
+      "complexity": {
+        "complexity_score": 10,
+        "edge_density": 0.0417,
+        "color_variance": 6262.86,
+        "subject_prominence": 0.8,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 5.72,
+        "dimensions": "1979x1280",
+        "aspect_ratio": 1.546,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 4.54,
+        "resolution_score": 10,
+        "text_space_score": 3.0,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 图片内容较满，建议留白区域添加标题文字",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "自然风光",
+        "objects": [
+          "植物",
+          "森林",
+          "草地"
+        ],
+        "colors": [
+          "绿色",
+          "自然色"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "旅行笔记",
+          "风景分享"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 3.82,
+      "recommendations": []
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_20250121211114.jpg",
+      "sharpness": 3.1,
+      "complexity": {
+        "complexity_score": 10,
+        "edge_density": 0.0391,
+        "color_variance": 7275.16,
+        "subject_prominence": 0.96,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 5.45,
+        "dimensions": "1920x1280",
+        "aspect_ratio": 1.5,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.0,
+        "resolution_score": 10,
+        "text_space_score": 1.5,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 图片内容较满，建议留白区域添加标题文字",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "自然风光",
+        "objects": [
+          "植物",
+          "森林",
+          "草地"
+        ],
+        "colors": [
+          "绿色",
+          "自然色"
+        ],
+        "mood": "中性",
+        "suitable_for": [
+          "旅行笔记",
+          "风景分享"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 3.76,
+      "recommendations": []
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_202501212111151.jpg",
+      "sharpness": 2.27,
+      "complexity": {
+        "complexity_score": 10,
+        "edge_density": 0.0283,
+        "color_variance": 7175.63,
+        "subject_prominence": 0.93,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 5.9,
+        "dimensions": "1920x1280",
+        "aspect_ratio": 1.5,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.0,
+        "resolution_score": 10,
+        "text_space_score": 3.0,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 图片内容较满，建议留白区域添加标题文字",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "自然风光",
+        "objects": [
+          "植物",
+          "森林",
+          "草地"
+        ],
+        "colors": [
+          "绿色",
+          "自然色"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "旅行笔记",
+          "风景分享"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 3.72,
+      "recommendations": []
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_20250121211115.jpg",
+      "sharpness": 2.12,
+      "complexity": {
+        "complexity_score": 10,
+        "edge_density": 0.0366,
+        "color_variance": 4740.48,
+        "subject_prominence": 1.25,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 5.9,
+        "dimensions": "1920x1280",
+        "aspect_ratio": 1.5,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.0,
+        "resolution_score": 10,
+        "text_space_score": 3.0,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 图片内容较满，建议留白区域添加标题文字",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "自然风光",
+        "objects": [
+          "植物",
+          "森林",
+          "草地"
+        ],
+        "colors": [
+          "绿色",
+          "自然色"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "旅行笔记",
+          "风景分享"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 3.69,
+      "recommendations": []
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_202501212111112.jpg",
+      "sharpness": 1.37,
+      "complexity": {
+        "complexity_score": 10,
+        "edge_density": 0.0208,
+        "color_variance": 6697.88,
+        "subject_prominence": 1.18,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 6.32,
+        "dimensions": "1930x1280",
+        "aspect_ratio": 1.508,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 4.92,
+        "resolution_score": 10,
+        "text_space_score": 4.5,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 图片内容较满，建议留白区域添加标题文字",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "生活记录",
+        "objects": [
+          "日常",
+          "人物"
+        ],
+        "colors": [
+          "多色",
+          "混合"
+        ],
+        "mood": "中性",
+        "suitable_for": [
+          "日常分享",
+          "生活记录"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 3.67,
+      "recommendations": []
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_20250121211113.jpg",
+      "sharpness": 3.12,
+      "complexity": {
+        "complexity_score": 10,
+        "edge_density": 0.0456,
+        "color_variance": 5288.51,
+        "subject_prominence": 1.31,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 5.0,
+        "dimensions": "1920x1280",
+        "aspect_ratio": 1.5,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.0,
+        "resolution_score": 10,
+        "text_space_score": 0.0,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 图片内容较满，建议留白区域添加标题文字",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "自然风光",
+        "objects": [
+          "植物",
+          "森林",
+          "草地"
+        ],
+        "colors": [
+          "绿色",
+          "自然色"
+        ],
+        "mood": "中性",
+        "suitable_for": [
+          "旅行笔记",
+          "风景分享"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 3.62,
+      "recommendations": []
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_202501212111131.jpg",
+      "sharpness": 1.65,
+      "complexity": {
+        "complexity_score": 10,
+        "edge_density": 0.0378,
+        "color_variance": 3189.13,
+        "subject_prominence": 1.26,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 5.9,
+        "dimensions": "1920x1280",
+        "aspect_ratio": 1.5,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.0,
+        "resolution_score": 10,
+        "text_space_score": 3.0,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 图片内容较满，建议留白区域添加标题文字",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "旅行度假",
+        "objects": [
+          "海洋",
+          "天空",
+          "水"
+        ],
+        "colors": [
+          "蓝色",
+          "青色"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "旅行笔记",
+          "风景分享"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 3.6,
+      "recommendations": []
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_202501212111171.jpg",
+      "sharpness": 1.78,
+      "complexity": {
+        "complexity_score": 10,
+        "edge_density": 0.0251,
+        "color_variance": 4270.35,
+        "subject_prominence": 0.23,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 5.54,
+        "dimensions": "1890x1280",
+        "aspect_ratio": 1.477,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.23,
+        "resolution_score": 10,
+        "text_space_score": 1.5,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 图片内容较满，建议留白区域添加标题文字",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "生活记录",
+        "objects": [
+          "日常",
+          "人物"
+        ],
+        "colors": [
+          "多色",
+          "混合"
+        ],
+        "mood": "中性",
+        "suitable_for": [
+          "日常分享",
+          "生活记录"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 3.52,
+      "recommendations": []
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_20250121211111.jpg",
+      "sharpness": 1.84,
+      "complexity": {
+        "complexity_score": 10,
+        "edge_density": 0.0295,
+        "color_variance": 9174.22,
+        "subject_prominence": 0.84,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 5.45,
+        "dimensions": "1920x1280",
+        "aspect_ratio": 1.5,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 5.0,
+        "resolution_score": 10,
+        "text_space_score": 1.5,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 图片内容较满，建议留白区域添加标题文字",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "自然风光",
+        "objects": [
+          "植物",
+          "森林",
+          "草地"
+        ],
+        "colors": [
+          "绿色",
+          "自然色"
+        ],
+        "mood": "明亮",
+        "suitable_for": [
+          "旅行笔记",
+          "风景分享"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 3.5,
+      "recommendations": []
+    },
+    {
+      "file": "XHS_Post/local_images/微信图片_202501212111193.jpg",
+      "sharpness": 2.18,
+      "complexity": {
+        "complexity_score": 10,
+        "edge_density": 0.038,
+        "color_variance": 3645.11,
+        "subject_prominence": 1.1,
+        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
+      },
+      "xiaohongshu_suitability": {
+        "overall_score": 4.98,
+        "dimensions": "1926x1280",
+        "aspect_ratio": 1.505,
+        "best_match_ratio": "1:1",
+        "ratio_match_score": 4.95,
+        "resolution_score": 10,
+        "text_space_score": 0.0,
+        "recommendations": [
+          "📐 横图建议改为竖图，提升封面展示效果",
+          "✏️ 图片内容较满，建议留白区域添加标题文字",
+          "🎨 建议使用暖色调滤镜，提升小红书风格"
+        ]
+      },
+      "theme": {
+        "theme": "生活记录",
+        "objects": [
+          "日常",
+          "人物"
+        ],
+        "colors": [
+          "多色",
+          "混合"
+        ],
+        "mood": "中性",
+        "suitable_for": [
+          "日常分享",
+          "生活记录"
+        ]
+      },
+      "topic_match": 5.0,
+      "overall_score": 3.43,
+      "recommendations": []
+    }
+  ],
+  "topic": "测试"
+}

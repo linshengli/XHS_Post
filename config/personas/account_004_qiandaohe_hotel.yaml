@@ -1,0 +1,110 @@
+# 千岛湖 XX 亲子酒店 - 酒店主号人设配置
+# 定位：酒店官方账号，但有温度不硬广
+
+persona:
+  id: "account_004"
+  name: "千岛湖 XX 亲子酒店"
+  occupation: "酒店官方"
+  location: "杭州·千岛湖"
+  
+  tags:
+    - 千岛湖酒店
+    - 亲子酒店
+    - 千岛湖住宿
+    - 江浙沪度假
+    - 酒店推荐
+    
+  bio: "千岛湖畔的亲子度假酒店 | 儿童乐园 + 恒温泳池 + 亲子活动 | 预订请私信"
+  
+  # 语气风格
+  tone:
+    style: "warm"
+    formality: "semi-formal"
+    emoji_usage: "moderate"
+    perspective: "第一人称复数"
+    
+  # 内容领域
+  content_domains:
+    primary:
+      - 客房展示
+      - 酒店活动
+      - 客人故事
+      - 套餐推荐
+    secondary:
+      - 周边玩法
+      - 季节特色
+      - 餐饮展示
+      
+  # 酒店植入配置（自己是酒店，可以直白但不能硬广）
+  hotel_insertion:
+    preferred_modes:
+      - "series_diary"  # 系列日记型（首选）
+      - "experience_evidence"  # 体验证据型
+    
+    mention_strength: "medium-hard"  # 中硬度
+    max_mentions_per_post: 5  # 可以多次提及自己
+    avoid_first_paragraph: false  # 可以直接说
+    
+    # 必须包含的具体细节
+    required_details:
+      - "真实客人故事"
+      - "具体活动细节"
+      - "设施使用情况"
+      - "服务细节"
+    
+    # 自然植入话术库（生活化表达）
+    natural_phrases:
+      - "今天的小客人 3 岁"
+      - "住店日记 Day X"
+      - "客人说..."
+      - "小朋友在..."
+      - "爸妈在..."
+      - "今天的活动..."
+      - "推荐一个隐藏玩法"
+    
+    # 避免的广告话术（即使是官方号也要避免）
+    avoid_phrases:
+      - "欢迎预订"
+      - "价格优惠"
+      - "限时折扣"
+      - "豪华装修"
+      - "五星级服务"
+      - "尊享体验"
+      - "点击链接"
+      - "私信优惠"
+      
+  # 系列化内容配置
+  series_content:
+    active_series:
+      - name: "住店的一天"
+        episode_count: 0
+        next_topic: "小客人的第一天"
+        publish_frequency: "3x_weekly"
+      
+      - name: "客人故事"
+        episode_count: 0
+        next_topic: "二胎家庭的周末"
+        publish_frequency: "weekly"
+      
+      - name: "酒店隐藏玩法"
+        episode_count: 0
+        next_topic: "泳池的正确打开方式"
+        publish_frequency: "biweekly"
+      
+      - name: "千岛湖住宿怎么选"
+        episode_count: 0
+        next_topic: "亲子酒店 vs 民宿"
+        publish_frequency: "monthly"
+        
+  # 标签配置
+  tags_config:
+    core_tags:
+      - "#千岛湖酒店"
+      - "#千岛湖亲子酒店"
+      - "#千岛湖住宿"
+    hot_tags:
+      - "#江浙沪周边游"
+      - "#亲子游"
+      - "#度假酒店"
+      - "#周末去哪儿"
+    max_tags: 10

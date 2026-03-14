@@ -1,0 +1,224 @@
+# 千岛湖亲子酒店 - 小红书账号注册表
+# 基于实际爬取内容生成的 4 个专属账号
+
+registry:
+  version: "2.0"
+  last_updated: "2026-03-15"
+  description: "千岛湖亲子酒店内容矩阵 - 4 个账号角色分工"
+  
+  # 账号列表
+  accounts:
+    # ========== 账号 1：目的地攻略号 ==========
+    - account_id: "account_001"
+      persona_file: "personas/account_001_qiandaohe_guide.yaml"
+      platform: "xiaohongshu"
+      status: "active"
+      
+      # 账号信息
+      username: "千岛湖攻略君"
+      display_name: "千岛湖攻略君"
+      bio: "专注千岛湖旅行攻略 | 5 年本地经验 | 帮你规划最省心的千岛湖之旅"
+      avatar_style: "professional"
+      
+      # 定位
+      role: "目的地攻略号"
+      target_audience: "计划去千岛湖的游客"
+      
+      # 内容策略
+      content_strategy:
+        primary_topics:
+          - 路线规划
+          - 景点推荐
+          - 交通指南
+          - 住宿攻略
+        hotel_insertion_mode: "route_anchor"
+        hotel_mention_strength: "soft"
+        content_ratio:
+          pure_useful: 0.60
+          scene_seeding: 0.20
+          soft_insertion: 0.15
+          hard_conversion: 0.05
+      
+      # 发布策略
+      publish_schedule:
+        frequency: "daily"
+        preferred_times: ["08:00", "12:00"]
+        posts_per_day: 2
+      
+      # 指标
+      priority: 1
+      created_date: "2026-03-15"
+      follower_count: 0
+      
+    # ========== 账号 2：亲子度假号 ==========
+    - account_id: "account_002"
+      persona_file: "personas/account_002_qiandaohe_family.yaml"
+      platform: "xiaohongshu"
+      status: "active"
+      
+      # 账号信息
+      username: "千岛湖遛娃记"
+      display_name: "千岛湖遛娃记"
+      bio: "80 后宝妈 | 专注江浙沪亲子游 | 带娃去过 100+ 酒店 | 分享真实带娃体验"
+      avatar_style: "warm"
+      
+      # 定位
+      role: "亲子度假号"
+      target_audience: "带娃家庭（3-8 岁）"
+      
+      # 内容策略
+      content_strategy:
+        primary_topics:
+          - 亲子酒店测评
+          - 带娃路线
+          - 亲子活动
+          - 遛娃攻略
+        hotel_insertion_mode: "problem_solver"
+        hotel_mention_strength: "medium"
+        content_ratio:
+          pure_useful: 0.30
+          scene_seeding: 0.40
+          soft_insertion: 0.20
+          hard_conversion: 0.10
+      
+      # 发布策略
+      publish_schedule:
+        frequency: "daily"
+        preferred_times: ["09:00", "20:00"]
+        posts_per_day: 2
+      
+      # 指标
+      priority: 1
+      created_date: "2026-03-15"
+      follower_count: 0
+      
+    # ========== 账号 3：本地生活号 ==========
+    - account_id: "account_003"
+      persona_file: "personas/account_003_qiandaohe_local.yaml"
+      platform: "xiaohongshu"
+      status: "active"
+      
+      # 账号信息
+      username: "千岛湖本地阿杰"
+      display_name: "千岛湖本地人阿杰"
+      bio: "淳安本地人 | 做了 8 年导游 | 带你玩真的千岛湖 | 不吹不黑实话实说"
+      avatar_style: "casual"
+      
+      # 定位
+      role: "本地生活号"
+      target_audience: "追求真实体验的游客"
+      
+      # 内容策略
+      content_strategy:
+        primary_topics:
+          - 本地人餐厅
+          - 小众打卡点
+          - 隐藏玩法
+          - 价格真相
+        hotel_insertion_mode: "experience_evidence"
+        hotel_mention_strength: "soft"
+        content_ratio:
+          pure_useful: 0.50
+          scene_seeding: 0.30
+          soft_insertion: 0.15
+          hard_conversion: 0.05
+      
+      # 发布策略
+      publish_schedule:
+        frequency: "daily"
+        preferred_times: ["11:00"]
+        posts_per_day: 1
+      
+      # 指标
+      priority: 1
+      created_date: "2026-03-15"
+      follower_count: 0
+      
+    # ========== 账号 4：酒店主号 ==========
+    - account_id: "account_004"
+      persona_file: "personas/account_004_qiandaohe_hotel.yaml"
+      platform: "xiaohongshu"
+      status: "active"
+      
+      # 账号信息
+      username: "千岛湖 XX 亲子酒店"
+      display_name: "千岛湖 XX 亲子酒店"
+      bio: "千岛湖畔的亲子度假酒店 | 儿童乐园 + 恒温泳池 + 亲子活动 | 预订请私信"
+      avatar_style: "hotel"
+      
+      # 定位
+      role: "酒店主号"
+      target_audience: "正在选酒店的家长"
+      
+      # 内容策略
+      content_strategy:
+        primary_topics:
+          - 客房展示
+          - 酒店活动
+          - 客人故事
+          - 套餐推荐
+        hotel_insertion_mode: "series_diary"
+        hotel_mention_strength: "medium-hard"
+        content_ratio:
+          pure_useful: 0.10
+          scene_seeding: 0.30
+          soft_insertion: 0.30
+          hard_conversion: 0.30
+      
+      # 发布策略
+      publish_schedule:
+        frequency: "daily"
+        preferred_times: ["10:00", "18:00"]
+        posts_per_day: 2
+      
+      # 指标
+      priority: 1
+      created_date: "2026-03-15"
+      follower_count: 0
+
+  # 全局配置
+  global_settings:
+    # 跨账号差异化要求
+    differentiation:
+      min_title_similarity: 0.3  # 标题相似度阈值
+      min_content_similarity: 0.4  # 内容相似度阈值
+      require_different_angles: true  # 必须使用不同角度
+      
+    # 内容分发策略
+    distribution:
+      strategy: "staggered"  # staggered (错峰), simultaneous (同时)
+      time_gap_hours: 2  # 错峰时间间隔
+      avoid_duplicate_topics_days: 7  # 避免相同主题的天数
+      
+    # 酒店植入控制
+    hotel_insertion_control:
+      # 4 个账号合计的内容配比
+      total_ratio:
+        pure_useful: 0.40  # 40% 纯有用内容
+        scene_seeding: 0.30  # 30% 场景种草
+        soft_insertion: 0.20  # 20% 软植入
+        hard_conversion: 0.10  # 10% 硬转化
+      
+      # 广告感风险控制
+      risk_control:
+        max_advertisement_score: 6  # 广告感评分上限 (1-10)
+        require_real_details: true  # 必须有真实细节
+        avoid_absolute_words: true  # 避免绝对化用语
+      
+    # LLM 配置
+    llm:
+      provider: "qwen"
+      model: "qwen3.5-plus"
+      temperature: 0.7
+      max_tokens: 2000
+      
+    # 系列化追踪
+    series_tracking:
+      enabled: true
+      tracker_file: "config/series_tracker.json"
+      
+    # Telegram 推送配置
+    telegram:
+      enabled: true
+      dry_run: true
+      channel_id: "@qiandaohe_hotel_auto"

@@ -1,0 +1,27 @@
+{
+  "topic": "千岛湖亲子酒店",
+  "date": "2026-03-15",
+  "accounts": [
+    "account_002",
+    "account_001",
+    "account_003"
+  ],
+  "validation": {
+    "passed": true,
+    "issues": []
+  },
+  "matches": {
+    "account_002": {
+      "match_score": 40,
+      "angle": "推荐适合亲子的好去处"
+    },
+    "account_001": {
+      "match_score": 40,
+      "angle": "推荐适合亲子的好去处"
+    },
+    "account_003": {
+      "match_score": 40,
+      "angle": "推荐适合亲子的好去处"
+    }
+  }
+}

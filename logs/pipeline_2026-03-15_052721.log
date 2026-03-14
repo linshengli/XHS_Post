@@ -1,0 +1,77 @@
+============================================================
+📈 小红书热门内容分析工具 - 主题筛选模式
+============================================================
+
+🎯 分析主题：千岛湖亲子酒店
+🔑 扩展后关键词 (19个): 客房, 千岛湖亲子酒店, 酒店, 宝宝, 入住, 带娃, 小孩, 儿童, 房型, 遛娃...
+
+📂 加载数据：/home/tbxsx/XHS_Post/xhs_post_from_search/jsonl/*.jsonl
+  加载：search_comments_2026-03-15.jsonl
+  加载：search_comments_2026-03-12.jsonl
+  加载：search_contents_2026-03-12.jsonl
+  加载：search_contents_2026-03-15.jsonl
+
+🔍 Step 1: 按 source_keyword 筛选主题相关数据...
+   找到 255 篇与 '千岛湖亲子酒店' 相关的笔记 (原始：6244篇)
+
+🔍 Step 2: 按关键词二次筛选内容...
+   筛选后剩余 164 篇笔记
+
+🔍 开始分析...
+📊 共加载 164 篇主题相关笔记
+🔥 找到 30 篇高赞笔记 (点赞>=3000)
+   提取到 50 个价值点
+
+============================================================
+✅ 热门内容分析完成！
+
+📊 关键发现:
+  • 高赞笔记平均字数：832 字
+  • 9篇使用 Emoji 表情
+  • 24篇使用清单体
+  • 最常用 Emoji: f
+
+🏷️  Top 10 热门标签:
+  1. #千岛湖 (16次)
+  2. #江浙沪周边游 (13次)
+  3. #千岛湖攻略 (11次)
+  4. #上海周边游 (8次)
+  5. #千岛湖旅游 (7次)
+  6. #懒人旅游攻略 (6次)
+  7. #杭州周边游 (6次)
+  8. #不早起旅行日记 (5次)
+  9. #小众度假好去处 (5次)
+  10. #值得N刷的宝藏出游地 (5次)
+
+💾 结果已保存到：/home/tbxsx/XHS_Post/config/trending_analysis.json
+============================================================
+============================================================
+📝 小红书笔记生成器 - 通用主题驱动模式
+============================================================
+
+🎯 生成主题：千岛湖亲子酒店
+📊 生成数量：10 篇
+📂 输出目录：/home/tbxsx/XHS_Post/generated_posts/2026-03-15
+
+📂 加载数据...
+✅ 数据检查通过：164 篇相关笔记，30 篇高赞笔记
+
+  加载原始数据：/home/tbxsx/XHS_Post/xhs_post_from_search/jsonl/*.jsonl
+  • 原始笔记总数：0 篇（已按 source_keyword='千岛湖亲子酒店' 过滤）
+  • 已用组合：0 个
+
+🎨 开始生成 10 篇笔记...
+  正在生成第 1 篇笔记...
+Traceback (most recent call last):
+  File "/home/tbxsx/XHS_Post/scripts/03_generate_posts.py", line 905, in <module>
+    main()
+  File "/home/tbxsx/XHS_Post/scripts/03_generate_posts.py", line 854, in main
+    post = generate_post(i, args.topic, trending_data, raw_posts, used_titles)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tbxsx/XHS_Post/scripts/03_generate_posts.py", line 686, in generate_post
+    content = generate_content(topic, features, topic_keywords)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tbxsx/XHS_Post/scripts/03_generate_posts.py", line 454, in generate_content
+    return generate_merchant_focused_content(topic, features, topic_keywords)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'generate_merchant_focused_content' is not defined

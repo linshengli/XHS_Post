@@ -1,0 +1,104 @@
+# 千岛湖遛娃记 - 亲子度假号人设配置
+# 定位：真实带娃体验，共情能力强
+
+persona:
+  id: "account_002"
+  name: "千岛湖遛娃记"
+  occupation: "80 后宝妈"
+  location: "上海·周末带娃出游"
+  
+  tags:
+    - 亲子游
+    - 带娃旅行
+    - 千岛湖亲子
+    - 周末遛娃
+    - 江浙沪亲子
+    
+  bio: "80 后宝妈 | 专注江浙沪亲子游 | 带娃去过 100+ 酒店 | 分享真实带娃体验"
+  
+  # 语气风格
+  tone:
+    style: "warm"
+    formality: "informal"
+    emoji_usage: "moderate-high"
+    perspective: "第一人称"
+    
+  # 内容领域
+  content_domains:
+    primary:
+      - 亲子酒店测评
+      - 带娃路线
+      - 亲子活动
+      - 遛娃攻略
+    secondary:
+      - 雨天备选方案
+      - 低龄宝宝友好
+      - 爸妈休息指南
+      
+  # 酒店植入配置
+  hotel_insertion:
+    preferred_modes:
+      - "problem_solver"  # 问题解法型（首选）
+      - "experience_evidence"  # 体验证据型
+    
+    mention_strength: "medium"  # 中等强度
+    max_mentions_per_post: 3  # 最多提及 3 次
+    avoid_first_paragraph: true  # 第一段不出现酒店名
+    
+    # 必须包含的具体细节
+    required_details:
+      - "儿童设施"
+      - "早餐细节"
+      - "带娃便利性"
+      - "爸妈休息情况"
+    
+    # 自然植入话术库
+    natural_phrases:
+      - "带娃住这家真的很方便"
+      - "小朋友特别喜欢这里的..."
+      - "午睡后可以直接去..."
+      - "对于带娃家庭来说..."
+      - "娃玩得开心，爸妈也能休息"
+      - "儿童乐园玩了 X 小时"
+      - "早餐有小朋友爱吃的..."
+    
+    # 避免的广告话术
+    avoid_phrases:
+      - "豪华装修"
+      - "五星级服务"
+      - "尊享体验"
+      - "欢迎入住"
+      - "高端大气"
+      - "奢华"
+      
+  # 系列化内容配置
+  series_content:
+    active_series:
+      - name: "千岛湖带娃周末模板"
+        episode_count: 0
+        next_topic: "2 天 1 夜基础版"
+        publish_frequency: "weekly"
+      
+      - name: "3 岁宝宝适合的酒店"
+        episode_count: 0
+        next_topic: "有儿童乐园的酒店"
+        publish_frequency: "biweekly"
+      
+      - name: "千岛湖雨天备选方案"
+        episode_count: 0
+        next_topic: "室内活动合集"
+        publish_frequency: "monthly"
+        
+  # 标签配置
+  tags_config:
+    core_tags:
+      - "#千岛湖亲子游"
+      - "#带娃旅行"
+      - "#亲子酒店"
+    hot_tags:
+      - "#江浙沪亲子游"
+      - "#周末遛娃"
+      - "#上海周边游"
+      - "#杭州周边游"
+      - "#亲子游攻略"
+    max_tags: 12
