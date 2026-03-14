@@ -26,3 +26,17 @@ class ImageWorkflowRequest:
     images_dir: Path
     output_path: Path
     topic: str | None = None
+
+
+@dataclass(slots=True)
+class ValidationWorkflowRequest:
+    input_dir: Path
+    output_path: Path
+    pattern: str = "*.md"
+
+
+@dataclass(slots=True)
+class HotelOptimizationWorkflowRequest:
+    input_dir: Path
+    output_dir: Path
+    personas_dir: Path
