@@ -19,3 +19,10 @@ class MultiAccountWorkflowRequest:
     input_path: Path
     output_dir: Path
     personas_dir: Path
+
+
+@dataclass(slots=True)
+class ImageWorkflowRequest:
+    images_dir: Path
+    output_path: Path
+    topic: str | None = None
