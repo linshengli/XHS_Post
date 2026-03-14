@@ -4,6 +4,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from xhs_post.storage import load_json
+
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
 
@@ -71,3 +73,76 @@ def build_image_analysis(image_files: list[Path], topic: str | None = None) -> d
         "topic": topic,
         "images": analyses,
     }
+
+
+def load_image_analysis(image_analysis_file: Path) -> list[dict[str, Any]]:
+    data = load_json(image_analysis_file)
+    return data.get("images", [])
+
+
+def _score_image(image: dict[str, Any], topic: str, angle: str | None = None) -> int:
+    score = 0
+    topic_tokens = [token for token in [topic, angle] if token]
+    haystack = " ".join(
+        image.get("theme_tokens", [])
+        + [image.get("theme", ""), image.get("style", ""), image.get("emotion", "")]
+        + image.get("suitable_for", [])
+    )
+    for token in topic_tokens:
+        if token and token in haystack:
+            score += 5
+    if any(keyword in haystack for keyword in ["封面图", "场景图", "细节图", "体验记录", "体验图"]):
+        score += 3
+    return score
+
+
+def select_images_for_post(
+    topic: str,
+    angle: str | None,
+    image_analyses: list[dict[str, Any]],
+    used_combinations: list[str] | None = None,
+    count: int = 4,
+) -> tuple[list[dict[str, Any]], str | None]:
+    if not image_analyses:
+        return [], None
+
+    roles = ["封面图", "场景图", "细节图", "体验图"]
+    ranked = sorted(
+        image_analyses,
+        key=lambda image: (_score_image(image, topic, angle), image.get("index", 0)),
+        reverse=True,
+    )
+    used_combinations = used_combinations or []
+
+    for start in range(len(ranked)):
+        selected = ranked[start : start + count]
+        if len(selected) < count:
+            selected = ranked[:count]
+        combination_id = "|".join(item["file_path"] for item in selected)
+        if combination_id in used_combinations:
+            continue
+        return (
+            [
+                {
+                    "path": image["file_path"],
+                    "role": roles[index] if index < len(roles) else f"配图{index + 1}",
+                    "theme": image.get("theme", ""),
+                }
+                for index, image in enumerate(selected)
+            ],
+            combination_id,
+        )
+
+    fallback = ranked[:count]
+    combination_id = "|".join(item["file_path"] for item in fallback)
+    return (
+        [
+            {
+                "path": image["file_path"],
+                "role": roles[index] if index < len(roles) else f"配图{index + 1}",
+                "theme": image.get("theme", ""),
+            }
+            for index, image in enumerate(fallback)
+        ],
+        combination_id,
+    )

@@ -38,6 +38,7 @@ from _project_paths import ensure_project_root_on_path, resolve_base_dir
 ensure_project_root_on_path()
 
 from xhs_post.storage import load_json, load_jsonl_files, save_json
+from xhs_post.images import load_image_analysis, select_images_for_post
 from xhs_post.topic import (
     expand_keywords,
     filter_posts_by_source_keyword,
@@ -50,6 +51,7 @@ BASE_DIR = resolve_base_dir()
 INPUT_DIR = BASE_DIR / "xhs_post_from_search" / "jsonl"
 TRENDING_ANALYSIS_FILE = BASE_DIR / "config" / "trending_analysis.json"
 STATE_FILE = BASE_DIR / "config" / "generation_state.json"
+IMAGE_ANALYSIS_FILE = BASE_DIR / "config" / "image_analysis.json"
 OUTPUT_DIR = BASE_DIR / "generated_posts"
 
 # 爆款标题公式 - 通用版
@@ -731,7 +733,8 @@ def generate_unique_id(content: str) -> str:
 
 
 def generate_post(post_id: int, topic: str, trending_data: dict, raw_posts: list,
-                  used_titles: list, angle: str = None) -> dict:
+                  used_titles: list, angle: str = None, image_analyses: list | None = None,
+                  used_combinations: list | None = None) -> dict:
     """生成单篇笔记（主题驱动模式）
     
     Args:
@@ -803,6 +806,15 @@ def generate_post(post_id: int, topic: str, trending_data: dict, raw_posts: list
         "angle": angle,  # 记录笔记角度
     }
 
+    selected_images, combination_id = select_images_for_post(
+        topic=topic,
+        angle=angle,
+        image_analyses=image_analyses or [],
+        used_combinations=used_combinations or [],
+    )
+    post["images"] = selected_images
+    post["image_combination_id"] = combination_id
+
     return post
 
 
@@ -823,13 +835,12 @@ def format_post_markdown(post: dict) -> str:
 
     md.append("")
 
-    # 配图建议
-    md.append("## 📸 配图建议")
-    md.append("⚠️ 建议补充与主题相关的实拍图片")
-    md.append("• 封面图：突出主题特色的精美照片")
-    md.append("• 细节图：展示核心亮点的特写")
-    md.append("• 场景图：使用场景或环境照片")
-    md.append("• 体验图：实际体验过程的照片")
+    md.append("## 📸 配图")
+    if post.get("images"):
+        for index, image in enumerate(post["images"], 1):
+            md.append(f"{index}. [{image['role']}] {image['path']} ({image.get('theme', '未标注')})")
+    else:
+        md.append("⚠️ 暂无可用图片，请先运行图片分析 workflow")
 
     md.append("")
 
@@ -896,6 +907,7 @@ def main():
     print("\n📂 加载数据...")
     trending_data = load_json(trending_analysis_file)
     state_data = load_json(STATE_FILE)
+    image_analyses = load_image_analysis(IMAGE_ANALYSIS_FILE)
 
     # 检查分析数据是否存在且与主题匹配
     if not trending_data:
@@ -942,6 +954,7 @@ def main():
 
     used_combinations = state_data.get('used_combinations', [])
     print(f"  • 已用组合：{len(used_combinations)} 个")
+    print(f"  • 可用图片：{len(image_analyses)} 张")
 
     # 生成笔记
     print(f"\n🎨 开始生成 {args.count} 篇笔记...")
@@ -949,8 +962,18 @@ def main():
     used_titles = []
 
     for i in range(1, args.count + 1):
-        post = generate_post(i, args.topic, trending_data, raw_posts, used_titles)
+        post = generate_post(
+            i,
+            args.topic,
+            trending_data,
+            raw_posts,
+            used_titles,
+            image_analyses=image_analyses,
+            used_combinations=used_combinations,
+        )
         posts.append(post)
+        if post.get("image_combination_id"):
+            used_combinations.append(post["image_combination_id"])
 
         # 保存单篇笔记
         output_file = output_dir / f"{post['id']}.md"
@@ -963,6 +986,7 @@ def main():
 
     # 更新状态
     current_date = datetime.now().strftime("%Y-%m-%d")
+    state_data['used_combinations'] = used_combinations
     state_data['last_run'] = datetime.now().isoformat()
     state_data['total_posts_generated'] += len(posts)
     state_data['last_generation'] = {

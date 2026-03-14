@@ -14,6 +14,7 @@ def write_test_repo(base_dir: Path) -> None:
     (base_dir / "config").mkdir(parents=True, exist_ok=True)
     (base_dir / "generated_posts").mkdir(parents=True, exist_ok=True)
     (base_dir / "xhs_post_from_search" / "jsonl").mkdir(parents=True, exist_ok=True)
+    (base_dir / "local_images" / "sample").mkdir(parents=True, exist_ok=True)
 
     fixture = REPO_ROOT / "tests" / "fixtures" / "search_contents_sample.jsonl"
     (base_dir / "xhs_post_from_search" / "jsonl" / "search_contents_sample.jsonl").write_text(
@@ -33,6 +34,8 @@ def write_test_repo(base_dir: Path) -> None:
         ),
         encoding="utf-8",
     )
+    for name in ["cover.jpg", "scene.jpg", "detail.jpg", "experience.jpg"]:
+        (base_dir / "local_images" / "sample" / name).write_text("placeholder", encoding="utf-8")
 
 
 def run_script(script_name: str, *args: str, env: dict[str, str]) -> subprocess.CompletedProcess[str]:
@@ -95,3 +98,38 @@ def test_topic_workflow_entrypoint_runs_end_to_end(tmp_path: Path):
 
     assert analysis_output.exists()
     assert len(list(output_dir.glob("*.md"))) == 1
+
+
+def test_e2e_generation_includes_real_image_list(tmp_path: Path):
+    write_test_repo(tmp_path)
+    env = os.environ | {"XHS_POST_BASE_DIR": str(tmp_path)}
+
+    run_script(
+        "01_analyze_images.py",
+        "--images-dir",
+        str(tmp_path / "local_images"),
+        "--output",
+        str(tmp_path / "config" / "image_analysis.json"),
+        "--topic",
+        "千岛湖亲子酒店",
+        env=env,
+    )
+    run_script("02_analyze_trending.py", "--topic", "千岛湖亲子酒店", env=env)
+    output_dir = tmp_path / "generated_posts" / "with_images"
+    run_script(
+        "03_generate_posts.py",
+        "--topic",
+        "千岛湖亲子酒店",
+        "--count",
+        "1",
+        "--seed",
+        "3",
+        "--output-dir",
+        str(output_dir),
+        env=env,
+    )
+
+    generated_file = next(output_dir.glob("*.md"))
+    content = generated_file.read_text(encoding="utf-8")
+    assert "## 📸 配图" in content
+    assert "cover.jpg" in content or "scene.jpg" in content
