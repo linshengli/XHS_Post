@@ -80,6 +80,53 @@ def load_image_analysis(image_analysis_file: Path) -> list[dict[str, Any]]:
     return data.get("images", [])
 
 
+def extract_crawled_images(raw_posts: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    images = []
+    for post in raw_posts:
+        image_list = post.get("image_list") or post.get("images") or post.get("image_urls")
+        if not image_list:
+            continue
+        urls: list[str] = []
+        if isinstance(image_list, str):
+            urls = [url.strip() for url in image_list.split(",") if url.strip()]
+        elif isinstance(image_list, list):
+            for item in image_list:
+                if isinstance(item, str) and item.strip():
+                    urls.append(item.strip())
+                elif isinstance(item, dict):
+                    for key in ("url", "image_url", "path"):
+                        value = item.get(key)
+                        if isinstance(value, str) and value.strip():
+                            urls.append(value.strip())
+                            break
+        if not urls:
+            continue
+        images.append(
+            {
+                "source_title": post.get("title", ""),
+                "source_keyword": post.get("source_keyword", ""),
+                "urls": urls,
+            }
+        )
+    return images
+
+
+def select_crawled_images_for_post(raw_posts: list[dict[str, Any]], count: int = 4) -> list[dict[str, Any]]:
+    roles = ["封面图", "场景图", "细节图", "体验图"]
+    for image_group in extract_crawled_images(raw_posts):
+        selected_urls = image_group["urls"][:count]
+        if selected_urls:
+            return [
+                {
+                    "path": url,
+                    "role": roles[index] if index < len(roles) else f"配图{index + 1}",
+                    "theme": image_group["source_keyword"] or image_group["source_title"],
+                }
+                for index, url in enumerate(selected_urls)
+            ]
+    return []
+
+
 def _score_image(image: dict[str, Any], topic: str, angle: str | None = None) -> int:
     score = 0
     topic_tokens = [token for token in [topic, angle] if token]

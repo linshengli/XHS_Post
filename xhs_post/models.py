@@ -40,3 +40,14 @@ class HotelOptimizationWorkflowRequest:
     input_dir: Path
     output_dir: Path
     personas_dir: Path
+
+
+@dataclass(slots=True)
+class LLMPostWorkflowRequest:
+    topic: str
+    count: int
+    trending_input: Path
+    output_dir: Path
+    raw_posts_dir: Path
+    provider: str | None = None
+    seed: int | None = None
