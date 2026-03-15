@@ -106,9 +106,12 @@ def generate_structured_post(prompt: str, provider: str | None = None) -> dict[s
             base_url = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1")
             return _openai_compatible_request(base_url, api_key, model, prompt)
         if provider_name in {"qwen", "dashscope", "tongyi"}:
-            api_key = os.environ["DASHSCOPE_API_KEY"]
-            model = os.environ.get("QWEN_MODEL", "qwen-plus")
-            base_url = os.environ.get("QWEN_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1")
+            api_key = os.environ.get("BAILIAN_API_KEY") or os.environ["DASHSCOPE_API_KEY"]
+            model = os.environ.get("QWEN_MODEL", "qwen3.5-plus")
+            base_url = os.environ.get("BAILIAN_BASE_URL") or os.environ.get(
+                "QWEN_BASE_URL",
+                "https://dashscope.aliyuncs.com/compatible-mode/v1",
+            )
             return _openai_compatible_request(base_url, api_key, model, prompt)
         if provider_name == "anthropic":
             api_key = os.environ["ANTHROPIC_API_KEY"]
