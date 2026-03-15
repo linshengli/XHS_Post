@@ -14,6 +14,7 @@ from xhs_post.workflows.llm_post_generation import run_llm_post_generation_workf
 
 BASE_DIR = resolve_base_dir()
 CONFIG_FILE = BASE_DIR / "config" / "trending_analysis.json"
+STATE_FILE = BASE_DIR / "config" / "generation_state.json"
 RAW_POSTS_DIR = BASE_DIR / "xhs_post_from_search" / "jsonl"
 OUTPUT_DIR = BASE_DIR / "generated_posts" / datetime.now().strftime("%Y-%m-%d")
 
@@ -39,6 +40,7 @@ def main():
             trending_input=Path(args.input),
             output_dir=Path(args.output_dir),
             raw_posts_dir=RAW_POSTS_DIR,
+            state_file=STATE_FILE,
             provider=args.provider,
             seed=args.seed,
         )

@@ -49,5 +49,8 @@ class LLMPostWorkflowRequest:
     trending_input: Path
     output_dir: Path
     raw_posts_dir: Path
+    state_file: Path | None = None
     provider: str | None = None
     seed: int | None = None
+    similarity_threshold: float = 0.82
+    max_attempts_per_post: int = 3

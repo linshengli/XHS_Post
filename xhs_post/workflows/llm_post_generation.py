@@ -5,10 +5,11 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from xhs_post.dedup import build_content_signature, find_similar_signature
 from xhs_post.images import select_crawled_images_for_post
 from xhs_post.llm import generate_structured_post
 from xhs_post.models import LLMPostWorkflowRequest
-from xhs_post.storage import load_json, load_jsonl_files
+from xhs_post.storage import load_json, load_jsonl_files, save_json
 from xhs_post.topic import expand_keywords, filter_posts_by_source_keyword
 
 
@@ -66,6 +67,8 @@ def run_llm_post_generation_workflow(request: LLMPostWorkflowRequest) -> list[Pa
         random.seed(request.seed)
 
     trending_data = load_json(request.trending_input)
+    state = load_json(request.state_file) if request.state_file else {}
+    content_signatures = list(state.get("content_signatures", []))
     raw_posts = filter_posts_by_source_keyword(load_jsonl_files(request.raw_posts_dir), request.topic)
     features = trending_data.get("features", {})
     angles = ["保姆级攻略", "避坑指南", "实测体验", "本地人推荐", "带娃攻略"]
@@ -73,12 +76,30 @@ def run_llm_post_generation_workflow(request: LLMPostWorkflowRequest) -> list[Pa
 
     output_files = []
     for index in range(1, request.count + 1):
+        response: dict[str, Any] | None = None
         angle = angles[(index - 1) % len(angles)]
-        response = generate_structured_post(_build_prompt(request.topic, angle, features), provider=request.provider)
+        for attempt in range(request.max_attempts_per_post):
+            angle = angles[(index - 1 + attempt) % len(angles)]
+            candidate = generate_structured_post(_build_prompt(request.topic, angle, features), provider=request.provider)
+            signature = build_content_signature(candidate["title"], candidate["content"])
+            duplicate = find_similar_signature(
+                signature,
+                content_signatures,
+                threshold=request.similarity_threshold,
+            )
+            if duplicate:
+                continue
+            candidate["_signature"] = signature
+            response = candidate
+            break
+        if response is None:
+            raise RuntimeError(f"Failed to generate unique content for post {index}")
+
         tags = response.get("tags") or [f"#{keyword}" for keyword in expand_keywords(request.topic)[:5]]
         if isinstance(tags, str):
             tags = tags.split()
         images = select_crawled_images_for_post(raw_posts)
+        content_signatures.append(response["_signature"])
         post = {
             "title": response["title"],
             "content": response["content"],
@@ -91,5 +112,14 @@ def run_llm_post_generation_workflow(request: LLMPostWorkflowRequest) -> list[Pa
         output_file = request.output_dir / f"{request.topic}_{index:02d}.md"
         output_file.write_text(_format_post_markdown(post), encoding="utf-8")
         output_files.append(output_file)
+
+    if request.state_file:
+        state["content_signatures"] = content_signatures[-200:]
+        state["last_generation"] = {
+            "topic": request.topic,
+            "count": len(output_files),
+            "generated_at": datetime.now().isoformat(),
+        }
+        save_json(request.state_file, state)
 
     return output_files

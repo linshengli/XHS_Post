@@ -135,13 +135,31 @@ def _mock_response(prompt: str) -> dict[str, Any]:
             angle = line.replace("角度：", "").strip()
     seed = sum(ord(char) for char in topic + angle)
     random.seed(seed)
+    openings = [
+        f"先说核心判断：{topic} 这类内容，最怕信息堆太满，读者反而抓不到重点。",
+        f"如果你是第一次做 {topic}，最有效的方式不是抄全攻略，而是先锁定 {angle} 这个切口。",
+        f"我这次重新拆了下 {topic} 的内容结构，发现真正影响体验的不是景点多少，而是 {angle} 的信息顺序。",
+    ]
+    focus_points = [
+        "我会优先看真实体验、场景适配和时间成本。",
+        "我会先筛掉营销感太重的信息，再保留真正能落地的细节。",
+        "我更关注决策顺序、节奏安排和容易踩坑的环节。",
+    ]
+    close_lines = [
+        "如果你也准备去，建议先收藏，再按自己的节奏微调。",
+        "这类内容不用一次看完，先把最适合自己的部分抄走就够了。",
+        "先把这一版跑通，再补细节，体验通常会稳定很多。",
+    ]
     return {
         "title": f"{topic}｜{angle}，这篇直接抄作业",
-        "content": (
-            f"这篇围绕 {topic} 的 {angle} 展开。\n\n"
-            "先说结论：把路线、住宿和带娃节奏拆开看，行程就会轻松很多。\n\n"
-            "我会优先看真实体验、场景适配和时间成本，而不是只看营销词。\n\n"
-            "如果你也准备去，建议先收藏，再按自己的节奏微调。"
+        "content": "\n\n".join(
+            [
+                f"这篇围绕 {topic} 的 {angle} 展开。",
+                openings[seed % len(openings)],
+                focus_points[(seed // 3) % len(focus_points)],
+                f"具体写法上，我会把 {angle} 拆成 3 段：先给结论，再讲场景，最后补执行建议。",
+                close_lines[(seed // 7) % len(close_lines)],
+            ]
         ),
         "tags": [
             f"#{topic.replace(' ', '')}",
