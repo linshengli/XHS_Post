@@ -1,1315 +1,736 @@
 {
   "total_images": 26,
-  "enhanced_images": [
-    {
-      "original": "XHS_Post/local_images/微信图片_20250121211120.jpg",
-      "enhanced": "XHS_Post/enhanced_images/enhanced_01_微信图片_20250121211120.jpg",
-      "improvement": "锐化 + 对比度提升"
-    },
-    {
-      "original": "XHS_Post/local_images/微信图片_202501212111192.jpg",
-      "enhanced": "XHS_Post/enhanced_images/enhanced_02_微信图片_202501212111192.jpg",
-      "improvement": "锐化 + 对比度提升"
-    },
-    {
-      "original": "XHS_Post/local_images/微信图片_20250121211117.jpg",
-      "enhanced": "XHS_Post/enhanced_images/enhanced_03_微信图片_20250121211117.jpg",
-      "improvement": "锐化 + 对比度提升"
-    },
-    {
-      "original": "XHS_Post/local_images/微信图片_20250121211118.jpg",
-      "enhanced": "XHS_Post/enhanced_images/enhanced_04_微信图片_20250121211118.jpg",
-      "improvement": "锐化 + 对比度提升"
-    },
-    {
-      "original": "XHS_Post/local_images/微信图片_20250121211116.jpg",
-      "enhanced": "XHS_Post/enhanced_images/enhanced_05_微信图片_20250121211116.jpg",
-      "improvement": "锐化 + 对比度提升"
-    },
-    {
-      "original": "XHS_Post/local_images/微信图片_202501212111201.jpg",
-      "enhanced": "XHS_Post/enhanced_images/enhanced_06_微信图片_202501212111201.jpg",
-      "improvement": "锐化 + 对比度提升"
-    },
-    {
-      "original": "XHS_Post/local_images/微信图片_202501212111191.jpg",
-      "enhanced": "XHS_Post/enhanced_images/enhanced_07_微信图片_202501212111191.jpg",
-      "improvement": "锐化 + 对比度提升"
-    },
-    {
-      "original": "XHS_Post/local_images/微信图片_202501212111181.jpg",
-      "enhanced": "XHS_Post/enhanced_images/enhanced_08_微信图片_202501212111181.jpg",
-      "improvement": "锐化 + 对比度提升"
-    },
-    {
-      "original": "XHS_Post/local_images/微信图片_20250121211110.jpg",
-      "enhanced": "XHS_Post/enhanced_images/enhanced_09_微信图片_20250121211110.jpg",
-      "improvement": "锐化 + 对比度提升"
-    },
-    {
-      "original": "XHS_Post/local_images/微信图片_202501212111152.jpg",
-      "enhanced": "XHS_Post/enhanced_images/enhanced_10_微信图片_202501212111152.jpg",
-      "improvement": "锐化 + 对比度提升"
-    }
-  ],
-  "ranked_results": [
-    {
-      "file": "XHS_Post/local_images/微信图片_20250121211120.jpg",
-      "sharpness": 1.78,
-      "complexity": {
-        "complexity_score": 1.79,
-        "edge_density": 0.0286,
-        "color_variance": 344.28,
-        "subject_prominence": 0.47,
-        "recommendation": "✅ 简洁明了，适合做封面"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 8.1,
-        "dimensions": "1889x1280",
-        "aspect_ratio": 1.476,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.24,
-        "resolution_score": 10,
-        "text_space_score": 10,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 文字空间充足，适合添加标题",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "生活记录",
-        "objects": [
-          "日常",
-          "人物"
-        ],
-        "colors": [
-          "多色",
-          "混合"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "日常分享",
-          "生活记录"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 5.93,
-      "recommendations": [
-        "🔍 清晰度较低，建议进行锐化处理",
-        "✅ 构图简洁，适合做封面",
-        "⚠️ 主题匹配度一般，建议配合文字说明",
-        "✅ 非常适合小红书风格"
-      ]
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_202501212111192.jpg",
-      "sharpness": 1.17,
-      "complexity": {
-        "complexity_score": 3.18,
-        "edge_density": 0.0159,
-        "color_variance": 628.58,
-        "subject_prominence": 1.61,
-        "recommendation": "⚠️ 内容适中，建议添加文字说明"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 7.93,
-        "dimensions": "1400x960",
-        "aspect_ratio": 1.458,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.42,
-        "resolution_score": 9.22,
-        "text_space_score": 10,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 文字空间充足，适合添加标题",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "生活记录",
-        "objects": [
-          "日常",
-          "人物"
-        ],
-        "colors": [
-          "多色",
-          "混合"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "日常分享",
-          "生活记录"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 5.48,
-      "recommendations": [
-        "🔍 清晰度较低，建议进行锐化处理",
-        "⚠️ 主题匹配度一般，建议配合文字说明"
-      ]
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_20250121211117.jpg",
-      "sharpness": 1.45,
-      "complexity": {
-        "complexity_score": 4.01,
-        "edge_density": 0.0203,
-        "color_variance": 792.18,
-        "subject_prominence": 1.25,
-        "recommendation": "⚠️ 内容适中，建议添加文字说明"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 8.0,
-        "dimensions": "1920x1280",
-        "aspect_ratio": 1.5,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.0,
-        "resolution_score": 10,
-        "text_space_score": 10,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 文字空间充足，适合添加标题",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "生活记录",
-        "objects": [
-          "日常",
-          "人物"
-        ],
-        "colors": [
-          "多色",
-          "混合"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "日常分享",
-          "生活记录"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 5.39,
-      "recommendations": [
-        "🔍 清晰度较低，建议进行锐化处理",
-        "⚠️ 主题匹配度一般，建议配合文字说明",
-        "✅ 非常适合小红书风格"
-      ]
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_20250121211118.jpg",
-      "sharpness": 1.12,
-      "complexity": {
-        "complexity_score": 4.04,
-        "edge_density": 0.0147,
-        "color_variance": 800.28,
-        "subject_prominence": 1.31,
-        "recommendation": "⚠️ 内容适中，建议添加文字说明"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 8.0,
-        "dimensions": "1920x1280",
-        "aspect_ratio": 1.5,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.0,
-        "resolution_score": 10,
-        "text_space_score": 10,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 文字空间充足，适合添加标题",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "生活记录",
-        "objects": [
-          "日常",
-          "人物"
-        ],
-        "colors": [
-          "多色",
-          "混合"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "日常分享",
-          "生活记录"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 5.32,
-      "recommendations": [
-        "🔍 清晰度较低，建议进行锐化处理",
-        "⚠️ 主题匹配度一般，建议配合文字说明",
-        "✅ 非常适合小红书风格"
-      ]
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_20250121211116.jpg",
-      "sharpness": 2.99,
-      "complexity": {
-        "complexity_score": 2.06,
-        "edge_density": 0.0393,
-        "color_variance": 391.37,
-        "subject_prominence": 0.64,
-        "recommendation": "✅ 简洁明了，适合做封面"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 5.0,
-        "dimensions": "1920x1280",
-        "aspect_ratio": 1.5,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.0,
-        "resolution_score": 10,
-        "text_space_score": 0.0,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 图片内容较满，建议留白区域添加标题文字",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "生活记录",
-        "objects": [
-          "日常",
-          "人物"
-        ],
-        "colors": [
-          "多色",
-          "混合"
-        ],
-        "mood": "中性",
-        "suitable_for": [
-          "日常分享",
-          "生活记录"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 5.19,
-      "recommendations": [
-        "🔍 清晰度较低，建议进行锐化处理",
-        "✅ 构图简洁，适合做封面",
-        "⚠️ 主题匹配度一般，建议配合文字说明",
-        "⚠️ 小红书适配度一般，建议调整"
-      ]
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_202501212111201.jpg",
-      "sharpness": 0.69,
-      "complexity": {
-        "complexity_score": 5.19,
-        "edge_density": 0.0192,
-        "color_variance": 1027.52,
-        "subject_prominence": 1.1,
-        "recommendation": "⚠️ 内容适中，建议添加文字说明"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 7.74,
-        "dimensions": "1498x962",
-        "aspect_ratio": 1.557,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 4.43,
-        "resolution_score": 9.88,
-        "text_space_score": 10,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 文字空间充足，适合添加标题",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "旅行度假",
-        "objects": [
-          "海洋",
-          "天空",
-          "水"
-        ],
-        "colors": [
-          "蓝色",
-          "青色"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "旅行笔记",
-          "风景分享"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 4.92,
-      "recommendations": [
-        "🔍 清晰度较低，建议进行锐化处理",
-        "⚠️ 主题匹配度一般，建议配合文字说明"
-      ]
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_202501212111191.jpg",
-      "sharpness": 2.19,
-      "complexity": {
-        "complexity_score": 6.35,
-        "edge_density": 0.0174,
-        "color_variance": 1261.07,
-        "subject_prominence": 0.4,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 6.43,
-        "dimensions": "1893x1280",
-        "aspect_ratio": 1.479,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.21,
-        "resolution_score": 10,
-        "text_space_score": 4.5,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 图片内容较满，建议留白区域添加标题文字",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "风光摄影",
-        "objects": [
-          "天空",
-          "自然"
-        ],
-        "colors": [
-          "白色",
-          "浅色"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "旅行笔记",
-          "风景分享"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 4.6,
-      "recommendations": [
-        "🔍 清晰度较低，建议进行锐化处理",
-        "🎯 内容较复杂，建议简化或裁剪",
-        "⚠️ 主题匹配度一般，建议配合文字说明"
-      ]
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_202501212111181.jpg",
-      "sharpness": 2.88,
-      "complexity": {
-        "complexity_score": 8.44,
-        "edge_density": 0.0238,
-        "color_variance": 1676.44,
-        "subject_prominence": 1.52,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 7.25,
-        "dimensions": "1920x1280",
-        "aspect_ratio": 1.5,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.0,
-        "resolution_score": 10,
-        "text_space_score": 7.5,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 文字空间充足，适合添加标题",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "生活记录",
-        "objects": [
-          "日常",
-          "人物"
-        ],
-        "colors": [
-          "多色",
-          "混合"
-        ],
-        "mood": "中性",
-        "suitable_for": [
-          "日常分享",
-          "生活记录"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 4.56,
-      "recommendations": [
-        "🔍 清晰度较低，建议进行锐化处理",
-        "🎯 内容较复杂，建议简化或裁剪",
-        "⚠️ 主题匹配度一般，建议配合文字说明"
-      ]
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_20250121211110.jpg",
-      "sharpness": 0.86,
-      "complexity": {
-        "complexity_score": 7.49,
-        "edge_density": 0.0175,
-        "color_variance": 1489.23,
-        "subject_prominence": 0.76,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 7.7,
-        "dimensions": "1920x1280",
-        "aspect_ratio": 1.5,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.0,
-        "resolution_score": 10,
-        "text_space_score": 9.0,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 文字空间充足，适合添加标题",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "生活记录",
-        "objects": [
-          "日常",
-          "人物"
-        ],
-        "colors": [
-          "多色",
-          "混合"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "日常分享",
-          "生活记录"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 4.48,
-      "recommendations": [
-        "🔍 清晰度较低，建议进行锐化处理",
-        "🎯 内容较复杂，建议简化或裁剪",
-        "⚠️ 主题匹配度一般，建议配合文字说明"
-      ]
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_202501212111152.jpg",
-      "sharpness": 2.84,
-      "complexity": {
-        "complexity_score": 5.51,
-        "edge_density": 0.0355,
-        "color_variance": 1084.42,
-        "subject_prominence": 1.09,
-        "recommendation": "⚠️ 内容适中，建议添加文字说明"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 5.0,
-        "dimensions": "1920x1280",
-        "aspect_ratio": 1.5,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.0,
-        "resolution_score": 10,
-        "text_space_score": 0.0,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 图片内容较满，建议留白区域添加标题文字",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "生活记录",
-        "objects": [
-          "日常",
-          "人物"
-        ],
-        "colors": [
-          "多色",
-          "混合"
-        ],
-        "mood": "中性",
-        "suitable_for": [
-          "日常分享",
-          "生活记录"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 4.47,
-      "recommendations": [
-        "🔍 清晰度较低，建议进行锐化处理",
-        "⚠️ 主题匹配度一般，建议配合文字说明",
-        "⚠️ 小红书适配度一般，建议调整"
-      ]
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_20250121211119.jpg",
-      "sharpness": 1.65,
-      "complexity": {
-        "complexity_score": 9.15,
-        "edge_density": 0.0235,
-        "color_variance": 1817.82,
-        "subject_prominence": 1.44,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 7.25,
-        "dimensions": "1920x1280",
-        "aspect_ratio": 1.5,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.0,
-        "resolution_score": 10,
-        "text_space_score": 7.5,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 文字空间充足，适合添加标题",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "生活记录",
-        "objects": [
-          "日常",
-          "人物"
-        ],
-        "colors": [
-          "多色",
-          "混合"
-        ],
-        "mood": "中性",
-        "suitable_for": [
-          "日常分享",
-          "生活记录"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 4.18,
-      "recommendations": []
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_202501212111111.jpg",
-      "sharpness": 2.98,
-      "complexity": {
-        "complexity_score": 10,
-        "edge_density": 0.0387,
-        "color_variance": 3446.61,
-        "subject_prominence": 0.56,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 6.74,
-        "dimensions": "1938x1280",
-        "aspect_ratio": 1.514,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 4.86,
-        "resolution_score": 10,
-        "text_space_score": 6.0,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "旅行度假",
-        "objects": [
-          "海洋",
-          "天空",
-          "水"
-        ],
-        "colors": [
-          "蓝色",
-          "青色"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "旅行笔记",
-          "风景分享"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 4.12,
-      "recommendations": []
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_20250121211112.jpg",
-      "sharpness": 2.59,
-      "complexity": {
-        "complexity_score": 10,
-        "edge_density": 0.0344,
-        "color_variance": 5913.49,
-        "subject_prominence": 0.47,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 6.64,
-        "dimensions": "1440x960",
-        "aspect_ratio": 1.5,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.0,
-        "resolution_score": 9.48,
-        "text_space_score": 6.0,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "自然风光",
-        "objects": [
-          "植物",
-          "森林",
-          "草地"
-        ],
-        "colors": [
-          "绿色",
-          "自然色"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "旅行笔记",
-          "风景分享"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 4.01,
-      "recommendations": []
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_20250121211013.jpg",
-      "sharpness": 3.07,
-      "complexity": {
-        "complexity_score": 10,
-        "edge_density": 0.0426,
-        "color_variance": 6328.32,
-        "subject_prominence": 0.8,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 5.72,
-        "dimensions": "1979x1280",
-        "aspect_ratio": 1.546,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 4.54,
-        "resolution_score": 10,
-        "text_space_score": 3.0,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 图片内容较满，建议留白区域添加标题文字",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "自然风光",
-        "objects": [
-          "植物",
-          "森林",
-          "草地"
-        ],
-        "colors": [
-          "绿色",
-          "自然色"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "旅行笔记",
-          "风景分享"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 3.83,
-      "recommendations": []
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_202501212111121.jpg",
-      "sharpness": 0.94,
-      "complexity": {
-        "complexity_score": 10,
-        "edge_density": 0.0199,
-        "color_variance": 2927.08,
-        "subject_prominence": 1.75,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 7.09,
-        "dimensions": "1440x960",
-        "aspect_ratio": 1.5,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.0,
-        "resolution_score": 9.48,
-        "text_space_score": 7.5,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 文字空间充足，适合添加标题",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "生活记录",
-        "objects": [
-          "日常",
-          "人物"
-        ],
-        "colors": [
-          "多色",
-          "混合"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "日常分享",
-          "生活记录"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 3.82,
-      "recommendations": []
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_202501212111141.jpg",
-      "sharpness": 2.73,
-      "complexity": {
-        "complexity_score": 10,
-        "edge_density": 0.0382,
-        "color_variance": 5701.21,
-        "subject_prominence": 1.18,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 5.9,
-        "dimensions": "1920x1280",
-        "aspect_ratio": 1.5,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.0,
-        "resolution_score": 10,
-        "text_space_score": 3.0,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 图片内容较满，建议留白区域添加标题文字",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "自然风光",
-        "objects": [
-          "植物",
-          "森林",
-          "草地"
-        ],
-        "colors": [
-          "绿色",
-          "自然色"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "旅行笔记",
-          "风景分享"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 3.82,
-      "recommendations": []
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_20250121204937.jpg",
-      "sharpness": 3.0,
-      "complexity": {
-        "complexity_score": 10,
-        "edge_density": 0.0417,
-        "color_variance": 6262.86,
-        "subject_prominence": 0.8,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 5.72,
-        "dimensions": "1979x1280",
-        "aspect_ratio": 1.546,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 4.54,
-        "resolution_score": 10,
-        "text_space_score": 3.0,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 图片内容较满，建议留白区域添加标题文字",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "自然风光",
-        "objects": [
-          "植物",
-          "森林",
-          "草地"
-        ],
-        "colors": [
-          "绿色",
-          "自然色"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "旅行笔记",
-          "风景分享"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 3.82,
-      "recommendations": []
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_20250121211114.jpg",
-      "sharpness": 3.1,
-      "complexity": {
-        "complexity_score": 10,
-        "edge_density": 0.0391,
-        "color_variance": 7275.16,
-        "subject_prominence": 0.96,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 5.45,
-        "dimensions": "1920x1280",
-        "aspect_ratio": 1.5,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.0,
-        "resolution_score": 10,
-        "text_space_score": 1.5,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 图片内容较满，建议留白区域添加标题文字",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "自然风光",
-        "objects": [
-          "植物",
-          "森林",
-          "草地"
-        ],
-        "colors": [
-          "绿色",
-          "自然色"
-        ],
-        "mood": "中性",
-        "suitable_for": [
-          "旅行笔记",
-          "风景分享"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 3.76,
-      "recommendations": []
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_202501212111151.jpg",
-      "sharpness": 2.27,
-      "complexity": {
-        "complexity_score": 10,
-        "edge_density": 0.0283,
-        "color_variance": 7175.63,
-        "subject_prominence": 0.93,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 5.9,
-        "dimensions": "1920x1280",
-        "aspect_ratio": 1.5,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.0,
-        "resolution_score": 10,
-        "text_space_score": 3.0,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 图片内容较满，建议留白区域添加标题文字",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "自然风光",
-        "objects": [
-          "植物",
-          "森林",
-          "草地"
-        ],
-        "colors": [
-          "绿色",
-          "自然色"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "旅行笔记",
-          "风景分享"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 3.72,
-      "recommendations": []
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_20250121211115.jpg",
-      "sharpness": 2.12,
-      "complexity": {
-        "complexity_score": 10,
-        "edge_density": 0.0366,
-        "color_variance": 4740.48,
-        "subject_prominence": 1.25,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 5.9,
-        "dimensions": "1920x1280",
-        "aspect_ratio": 1.5,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.0,
-        "resolution_score": 10,
-        "text_space_score": 3.0,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 图片内容较满，建议留白区域添加标题文字",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "自然风光",
-        "objects": [
-          "植物",
-          "森林",
-          "草地"
-        ],
-        "colors": [
-          "绿色",
-          "自然色"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "旅行笔记",
-          "风景分享"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 3.69,
-      "recommendations": []
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_202501212111112.jpg",
-      "sharpness": 1.37,
-      "complexity": {
-        "complexity_score": 10,
-        "edge_density": 0.0208,
-        "color_variance": 6697.88,
-        "subject_prominence": 1.18,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 6.32,
-        "dimensions": "1930x1280",
-        "aspect_ratio": 1.508,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 4.92,
-        "resolution_score": 10,
-        "text_space_score": 4.5,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 图片内容较满，建议留白区域添加标题文字",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "生活记录",
-        "objects": [
-          "日常",
-          "人物"
-        ],
-        "colors": [
-          "多色",
-          "混合"
-        ],
-        "mood": "中性",
-        "suitable_for": [
-          "日常分享",
-          "生活记录"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 3.67,
-      "recommendations": []
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_20250121211113.jpg",
-      "sharpness": 3.12,
-      "complexity": {
-        "complexity_score": 10,
-        "edge_density": 0.0456,
-        "color_variance": 5288.51,
-        "subject_prominence": 1.31,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 5.0,
-        "dimensions": "1920x1280",
-        "aspect_ratio": 1.5,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.0,
-        "resolution_score": 10,
-        "text_space_score": 0.0,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 图片内容较满，建议留白区域添加标题文字",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "自然风光",
-        "objects": [
-          "植物",
-          "森林",
-          "草地"
-        ],
-        "colors": [
-          "绿色",
-          "自然色"
-        ],
-        "mood": "中性",
-        "suitable_for": [
-          "旅行笔记",
-          "风景分享"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 3.62,
-      "recommendations": []
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_202501212111131.jpg",
-      "sharpness": 1.65,
-      "complexity": {
-        "complexity_score": 10,
-        "edge_density": 0.0378,
-        "color_variance": 3189.13,
-        "subject_prominence": 1.26,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 5.9,
-        "dimensions": "1920x1280",
-        "aspect_ratio": 1.5,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.0,
-        "resolution_score": 10,
-        "text_space_score": 3.0,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 图片内容较满，建议留白区域添加标题文字",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "旅行度假",
-        "objects": [
-          "海洋",
-          "天空",
-          "水"
-        ],
-        "colors": [
-          "蓝色",
-          "青色"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "旅行笔记",
-          "风景分享"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 3.6,
-      "recommendations": []
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_202501212111171.jpg",
-      "sharpness": 1.78,
-      "complexity": {
-        "complexity_score": 10,
-        "edge_density": 0.0251,
-        "color_variance": 4270.35,
-        "subject_prominence": 0.23,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 5.54,
-        "dimensions": "1890x1280",
-        "aspect_ratio": 1.477,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.23,
-        "resolution_score": 10,
-        "text_space_score": 1.5,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 图片内容较满，建议留白区域添加标题文字",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "生活记录",
-        "objects": [
-          "日常",
-          "人物"
-        ],
-        "colors": [
-          "多色",
-          "混合"
-        ],
-        "mood": "中性",
-        "suitable_for": [
-          "日常分享",
-          "生活记录"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 3.52,
-      "recommendations": []
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_20250121211111.jpg",
-      "sharpness": 1.84,
-      "complexity": {
-        "complexity_score": 10,
-        "edge_density": 0.0295,
-        "color_variance": 9174.22,
-        "subject_prominence": 0.84,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 5.45,
-        "dimensions": "1920x1280",
-        "aspect_ratio": 1.5,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 5.0,
-        "resolution_score": 10,
-        "text_space_score": 1.5,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 图片内容较满，建议留白区域添加标题文字",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "自然风光",
-        "objects": [
-          "植物",
-          "森林",
-          "草地"
-        ],
-        "colors": [
-          "绿色",
-          "自然色"
-        ],
-        "mood": "明亮",
-        "suitable_for": [
-          "旅行笔记",
-          "风景分享"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 3.5,
-      "recommendations": []
-    },
-    {
-      "file": "XHS_Post/local_images/微信图片_202501212111193.jpg",
-      "sharpness": 2.18,
-      "complexity": {
-        "complexity_score": 10,
-        "edge_density": 0.038,
-        "color_variance": 3645.11,
-        "subject_prominence": 1.1,
-        "recommendation": "❌ 内容繁杂，建议裁剪或简化背景"
-      },
-      "xiaohongshu_suitability": {
-        "overall_score": 4.98,
-        "dimensions": "1926x1280",
-        "aspect_ratio": 1.505,
-        "best_match_ratio": "1:1",
-        "ratio_match_score": 4.95,
-        "resolution_score": 10,
-        "text_space_score": 0.0,
-        "recommendations": [
-          "📐 横图建议改为竖图，提升封面展示效果",
-          "✏️ 图片内容较满，建议留白区域添加标题文字",
-          "🎨 建议使用暖色调滤镜，提升小红书风格"
-        ]
-      },
-      "theme": {
-        "theme": "生活记录",
-        "objects": [
-          "日常",
-          "人物"
-        ],
-        "colors": [
-          "多色",
-          "混合"
-        ],
-        "mood": "中性",
-        "suitable_for": [
-          "日常分享",
-          "生活记录"
-        ]
-      },
-      "topic_match": 5.0,
-      "overall_score": 3.43,
-      "recommendations": []
-    }
-  ],
-  "topic": "测试",
+  "analysis_date": "2026-03-15 12:39",
+  "topic": "太空主题游乐场",
   "images": [
     {
-      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_20250121211120.jpg",
-      "theme": "测试",
-      "type": "image",
-      "source": "local"
+      "theme": "太空主题亲子游乐空间",
+      "elements": [
+        "宇航员玩偶",
+        "星云墙面",
+        "行星装饰",
+        "海洋球池",
+        "蹦床",
+        "滑梯"
+      ],
+      "colors": [
+        "深蓝色",
+        "白色",
+        "粉色",
+        "紫色"
+      ],
+      "emotion": "梦幻、充满想象力、未来感、童趣",
+      "style": "科幻主题亲子设计",
+      "suitable_for": [
+        "亲子酒店宣传",
+        "儿童乐园推广",
+        "亲子活动摄影",
+        "小红书亲子探店"
+      ],
+      "description": "太空主题室内亲子空间，星云墙面、宇航员模型、海洋球池，色彩梦幻，充满未来感与童趣，适合亲子拍照打卡。",
+      "file_name": "微信图片_20250121204937.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_20250121204937.jpg",
+      "analysis_method": "ai_vision"
     },
     {
-      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_202501212111192.jpg",
-      "theme": "测试",
-      "type": "image",
-      "source": "local"
+      "theme": "太空主题亲子游乐空间",
+      "elements": [
+        "宇航员模型",
+        "星云壁画",
+        "星空顶灯",
+        "行星装饰",
+        "滑梯",
+        "海洋球池",
+        "攀爬架"
+      ],
+      "colors": [
+        "宇宙蓝",
+        "白色",
+        "紫红色",
+        "粉色"
+      ],
+      "emotion": "梦幻、充满想象力、童真快乐、未来科技感",
+      "style": "科幻风格亲子乐园设计",
+      "suitable_for": [
+        "亲子酒店宣传",
+        "儿童乐园推广",
+        "亲子活动摄影",
+        "小红书亲子探店"
+      ],
+      "description": "太空主题儿童乐园，宇航员模型、星云壁画、星空顶，蓝白主色调营造梦幻未来感，充满童趣，适合亲子拍照打卡。",
+      "file_name": "微信图片_20250121211013.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_20250121211013.jpg",
+      "analysis_method": "ai_vision"
     },
     {
-      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_20250121211117.jpg",
-      "theme": "测试",
-      "type": "image",
-      "source": "local"
+      "theme": "未来感太空主题卧室",
+      "elements": [
+        "拱形 LED 灯带背景墙",
+        "圆形星空窗",
+        "白色双人床",
+        "挂墙电视",
+        "浅色木地板"
+      ],
+      "colors": [
+        "浅蓝色",
+        "白色",
+        "深蓝色",
+        "木色"
+      ],
+      "emotion": "宁静、舒适、梦幻、科技感",
+      "style": "现代简约科幻风格",
+      "suitable_for": [
+        "特色酒店推广",
+        "民宿房间展示",
+        "室内设计案例",
+        "亲子房宣传"
+      ],
+      "description": "太空主题卧室，拱形 LED 灯带与星空圆窗营造梦幻科技感，蓝白主调宁静舒适，适合特色民宿推广。",
+      "file_name": "微信图片_20250121211110.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_20250121211110.jpg",
+      "analysis_method": "ai_vision"
     },
     {
-      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_20250121211118.jpg",
-      "theme": "测试",
-      "type": "image",
-      "source": "local"
+      "theme": "太空主题儿童游乐区",
+      "elements": [
+        "宇航员服装儿童",
+        "火箭造型滑梯",
+        "星空墙面",
+        "星球装饰",
+        "攀爬梯"
+      ],
+      "colors": [
+        "深蓝色",
+        "白色",
+        "银色"
+      ],
+      "emotion": "探索、冒险、童趣、未来感",
+      "style": "科幻主题亲子设计",
+      "suitable_for": [
+        "亲子酒店宣传",
+        "儿童乐园推广",
+        "亲子活动摄影",
+        "小红书亲子探店"
+      ],
+      "description": "太空主题儿童游乐区，小朋友穿宇航服攀爬火箭滑梯，星空墙面营造沉浸式太空体验，适合亲子打卡宣传。",
+      "file_name": "微信图片_20250121211111.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_20250121211111.jpg",
+      "analysis_method": "ai_vision"
     },
     {
-      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_20250121211116.jpg",
-      "theme": "测试",
-      "type": "image",
-      "source": "local"
+      "theme": "太空主题天花板设计",
+      "elements": [
+        "星云圆形顶灯",
+        "悬挂星球模型",
+        "流线型 LED 灯带",
+        "波浪形吊顶"
+      ],
+      "colors": [
+        "淡紫色",
+        "白色",
+        "青绿色",
+        "蓝色"
+      ],
+      "emotion": "梦幻、神秘、宁静、未来感",
+      "style": "现代科幻风格室内设计",
+      "suitable_for": [
+        "亲子酒店房间展示",
+        "室内设计案例",
+        "太空主题空间宣传",
+        "小红书装修分享"
+      ],
+      "description": "太空主题天花板设计，星云顶灯与悬挂星球营造梦幻氛围，流线灯带增强未来感，适合亲子房宣传。",
+      "file_name": "微信图片_202501212111111.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_202501212111111.jpg",
+      "analysis_method": "ai_vision"
     },
     {
-      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_202501212111201.jpg",
-      "theme": "测试",
-      "type": "image",
-      "source": "local"
+      "theme": "太空主题双床客房",
+      "elements": [
+        "星空背景墙",
+        "两张单人床",
+        "星球壁灯",
+        "白色床品",
+        "落地窗帘"
+      ],
+      "colors": [
+        "深蓝色",
+        "白色",
+        "浅木色"
+      ],
+      "emotion": "宁静、舒适、梦幻、温馨",
+      "style": "现代简约太空主题设计",
+      "suitable_for": [
+        "亲子酒店双床房展示",
+        "家庭出游住宿推荐",
+        "主题房间宣传",
+        "小红书酒店探店"
+      ],
+      "description": "太空主题双床房，星空背景墙搭配星球壁灯，白色床品简洁舒适，适合家庭出游或亲子住宿宣传。",
+      "file_name": "微信图片_202501212111112.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_202501212111112.jpg",
+      "analysis_method": "ai_vision"
     },
     {
-      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_202501212111191.jpg",
-      "theme": "测试",
-      "type": "image",
-      "source": "local"
+      "theme": "太空主题 LOFT 房间一楼空间",
+      "elements": [
+        "麻将桌",
+        "宇航员玩偶",
+        "星空墙面",
+        "楼梯",
+        "LED 灯带",
+        "卫生间"
+      ],
+      "colors": [
+        "蓝色",
+        "白色",
+        "紫色"
+      ],
+      "emotion": "现代、科技感、休闲娱乐",
+      "style": "科幻主题复式设计",
+      "suitable_for": [
+        "亲子套房展示",
+        "LOFT 房型宣传",
+        "家庭聚会住宿推荐",
+        "小红书酒店探店"
+      ],
+      "description": "太空主题 LOFT 一楼，麻将桌休闲娱乐，星空墙面与宇航员营造科技感，适合家庭聚会或多人住宿宣传。",
+      "file_name": "微信图片_20250121211112.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_20250121211112.jpg",
+      "analysis_method": "ai_vision"
     },
     {
-      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_202501212111181.jpg",
-      "theme": "测试",
-      "type": "image",
-      "source": "local"
+      "theme": "星空主题卧室",
+      "elements": [
+        "圆形星空背景墙",
+        "白色床品",
+        "毛绒玩具",
+        "床头柜"
+      ],
+      "colors": [
+        "蓝色",
+        "白色",
+        "浅灰色"
+      ],
+      "emotion": "宁静、梦幻、温馨、舒适",
+      "style": "现代简约星空主题设计",
+      "suitable_for": [
+        "亲子大床房展示",
+        "主题房间宣传",
+        "情侣住宿推荐",
+        "小红书酒店探店"
+      ],
+      "description": "星空主题卧室，圆形星云背景墙营造梦幻氛围，白色床品简洁舒适，毛绒玩具增添温馨感，适合亲子或情侣住宿。",
+      "file_name": "微信图片_202501212111121.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_202501212111121.jpg",
+      "analysis_method": "ai_vision"
     },
     {
-      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_20250121211110.jpg",
-      "theme": "测试",
-      "type": "image",
-      "source": "local"
+      "theme": "太空主题亲子游乐空间",
+      "elements": [
+        "滑梯",
+        "海洋球池",
+        "宇航员玩偶",
+        "星空墙面",
+        "星球装饰",
+        "蹦床"
+      ],
+      "colors": [
+        "深蓝色",
+        "白色",
+        "粉色",
+        "紫色"
+      ],
+      "emotion": "梦幻、欢乐、童趣、未来感",
+      "style": "科幻主题亲子乐园设计",
+      "suitable_for": [
+        "亲子套房宣传",
+        "儿童乐园推广",
+        "家庭出游推荐",
+        "小红书亲子探店"
+      ],
+      "description": "太空主题亲子游乐区，滑梯连接海洋球池，星空墙面与宇航员营造沉浸式太空体验，适合亲子家庭住宿宣传。",
+      "file_name": "微信图片_20250121211113.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_20250121211113.jpg",
+      "analysis_method": "ai_vision"
     },
     {
-      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_202501212111152.jpg",
-      "theme": "测试",
-      "type": "image",
-      "source": "local"
+      "theme": "太空主题儿童游乐区俯视图",
+      "elements": [
+        "金属滑梯",
+        "海洋球池",
+        "圆形蹦床",
+        "宇航员玩偶",
+        "星球墙面装饰",
+        "星空地面"
+      ],
+      "colors": [
+        "白色",
+        "蓝色",
+        "粉色",
+        "银色"
+      ],
+      "emotion": "欢乐、活泼、童趣、探索感",
+      "style": "科幻主题亲子乐园设计",
+      "suitable_for": [
+        "亲子套房宣传",
+        "儿童游乐设施展示",
+        "家庭出游推荐",
+        "小红书亲子探店"
+      ],
+      "description": "太空主题游乐区俯视，滑梯连接海洋球池，星空地面与星球墙面营造沉浸式体验，适合亲子家庭住宿宣传。",
+      "file_name": "微信图片_202501212111131.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_202501212111131.jpg",
+      "analysis_method": "ai_vision"
+    },
+    {
+      "theme": "太空主题亲子游乐空间",
+      "elements": [
+        "宇航员玩偶",
+        "蓝色滑梯",
+        "星空墙面",
+        "星球吊顶",
+        "攀爬架",
+        "蹦床"
+      ],
+      "colors": [
+        "深蓝色",
+        "白色",
+        "粉色",
+        "银色"
+      ],
+      "emotion": "梦幻、探索、童趣、未来感",
+      "style": "科幻主题亲子乐园设计",
+      "suitable_for": [
+        "亲子套房宣传",
+        "儿童乐园推广",
+        "家庭出游推荐",
+        "小红书亲子探店"
+      ],
+      "description": "太空主题游乐区，宇航员玩偶、蓝色滑梯、星空墙面营造沉浸式太空体验，适合亲子家庭住宿宣传。",
+      "file_name": "微信图片_20250121211114.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_20250121211114.jpg",
+      "analysis_method": "ai_vision"
+    },
+    {
+      "theme": "太空主题亲子娱乐空间",
+      "elements": [
+        "麻将桌",
+        "蓝色滑梯",
+        "海洋球池",
+        "宇航员玩偶",
+        "星空墙面",
+        "攀爬架"
+      ],
+      "colors": [
+        "蓝色",
+        "白色",
+        "绿色",
+        "粉色"
+      ],
+      "emotion": "欢乐、休闲、童趣、科技感",
+      "style": "科幻主题亲子娱乐设计",
+      "suitable_for": [
+        "亲子套房宣传",
+        "家庭聚会推荐",
+        "多功能房间展示",
+        "小红书亲子探店"
+      ],
+      "description": "太空主题亲子空间，滑梯海洋球池供儿童玩耍，麻将桌满足成人娱乐，适合家庭聚会或多代同游住宿。",
+      "file_name": "微信图片_202501212111141.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_202501212111141.jpg",
+      "analysis_method": "ai_vision"
+    },
+    {
+      "theme": "太空主题 LOFT 亲子套房",
+      "elements": [
+        "麻将桌",
+        "蓝色滑梯",
+        "海洋球池",
+        "宇航员玩偶",
+        "星空墙面",
+        "卫生间",
+        "卧室"
+      ],
+      "colors": [
+        "蓝色",
+        "白色",
+        "绿色",
+        "粉色"
+      ],
+      "emotion": "欢乐、休闲、童趣、科技感",
+      "style": "科幻主题亲子 LOFT 设计",
+      "suitable_for": [
+        "亲子套房宣传",
+        "家庭聚会推荐",
+        "LOFT 房型展示",
+        "小红书亲子探店"
+      ],
+      "description": "太空主题 LOFT 套房，麻将桌、滑梯、海洋球池满足不同需求，适合家庭聚会或多代同游住宿宣传。",
+      "file_name": "微信图片_20250121211115.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_20250121211115.jpg",
+      "analysis_method": "ai_vision"
+    },
+    {
+      "theme": "现代风格麻将娱乐区",
+      "elements": [
+        "自动麻将桌",
+        "波浪形墙面",
+        "LED 灯带",
+        "四把椅子"
+      ],
+      "colors": [
+        "蓝色",
+        "白色",
+        "绿色",
+        "灰色"
+      ],
+      "emotion": "休闲、娱乐、现代、舒适",
+      "style": "现代简约娱乐空间设计",
+      "suitable_for": [
+        "亲子套房娱乐设施展示",
+        "家庭聚会推荐",
+        "休闲设施宣传",
+        "小红书酒店探店"
+      ],
+      "description": "现代风格麻将娱乐区，自动麻将桌配四把椅子，蓝色波浪墙面与 LED 灯带营造休闲氛围，适合家庭聚会娱乐。",
+      "file_name": "微信图片_202501212111151.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_202501212111151.jpg",
+      "analysis_method": "ai_vision"
+    },
+    {
+      "theme": "艺术图案主题卫生间",
+      "elements": [
+        "玻璃淋浴房",
+        "抽象图案瓷砖",
+        "圆形镜子",
+        "悬空洗手台",
+        "白色毛巾"
+      ],
+      "colors": [
+        "白色",
+        "黑色",
+        "金色",
+        "米色"
+      ],
+      "emotion": "时尚、艺术、现代、整洁",
+      "style": "现代艺术风格卫浴设计",
+      "suitable_for": [
+        "酒店卫生间展示",
+        "室内设计案例",
+        "装修灵感分享",
+        "小红书家装探店"
+      ],
+      "description": "艺术主题卫生间，抽象图案瓷砖铺满墙面地面，玻璃淋浴房干湿分离，悬空洗手台现代时尚，适合室内设计展示。",
+      "file_name": "微信图片_202501212111152.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_202501212111152.jpg",
+      "analysis_method": "ai_vision"
+    },
+    {
+      "theme": "艺术图案主题卫生间淋浴区",
+      "elements": [
+        "玻璃淋浴房",
+        "抽象图案瓷砖",
+        "白色马桶",
+        "壁挂热水器",
+        "黑色花洒"
+      ],
+      "colors": [
+        "白色",
+        "黑色",
+        "金色",
+        "灰色"
+      ],
+      "emotion": "时尚、艺术、现代、整洁",
+      "style": "现代艺术风格卫浴设计",
+      "suitable_for": [
+        "酒店卫生间展示",
+        "淋浴房设计案例",
+        "装修灵感分享",
+        "小红书家装探店"
+      ],
+      "description": "艺术主题卫生间淋浴区，抽象图案瓷砖铺满墙面，玻璃淋浴房干湿分离，设施齐全现代整洁，适合室内设计展示。",
+      "file_name": "微信图片_20250121211116.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_20250121211116.jpg",
+      "analysis_method": "ai_vision"
+    },
+    {
+      "theme": "酒店走廊艺术设计空间",
+      "elements": [
+        "彩色树木装饰画",
+        "木纹墙面",
+        "大理石地面",
+        "走廊灯",
+        "房门"
+      ],
+      "colors": [
+        "米色",
+        "白色",
+        "彩色",
+        "灰色"
+      ],
+      "emotion": "温馨、艺术、宁静、舒适",
+      "style": "现代简约艺术风格走廊设计",
+      "suitable_for": [
+        "酒店环境展示",
+        "公共区域设计案例",
+        "装修灵感分享",
+        "小红书酒店探店"
+      ],
+      "description": "酒店艺术走廊，木纹墙面搭配彩色树木装饰画，大理石地面干净整洁，营造温馨舒适的入住氛围，适合酒店环境展示。",
+      "file_name": "微信图片_20250121211117.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_20250121211117.jpg",
+      "analysis_method": "ai_vision"
+    },
+    {
+      "theme": "可爱兔子热气球欢迎壁画",
+      "elements": [
+        "兔子热气球插画",
+        "云朵装饰",
+        "欢迎文字",
+        "消防栓箱",
+        "安全出口"
+      ],
+      "colors": [
+        "粉色",
+        "蓝色",
+        "白色",
+        "木色"
+      ],
+      "emotion": "温馨、可爱、欢迎、童趣",
+      "style": "卡通可爱风格墙面设计",
+      "suitable_for": [
+        "酒店大堂展示",
+        "亲子空间入口",
+        "欢迎墙设计案例",
+        "小红书酒店探店"
+      ],
+      "description": "酒店欢迎壁画，粉色背景搭配可爱兔子热气球插画，屿见山居欢迎您字样温馨亲切，适合亲子空间入口展示。",
+      "file_name": "微信图片_202501212111171.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_202501212111171.jpg",
+      "analysis_method": "ai_vision"
+    },
+    {
+      "theme": "龙猫主题酒店艺术走廊",
+      "elements": [
+        "龙猫装饰画",
+        "木纹墙面",
+        "大理石地面",
+        "走廊灯",
+        "房门"
+      ],
+      "colors": [
+        "米色",
+        "白色",
+        "蓝色",
+        "灰色"
+      ],
+      "emotion": "温馨、童趣、艺术、宁静",
+      "style": "现代简约卡通风格走廊设计",
+      "suitable_for": [
+        "酒店环境展示",
+        "亲子空间设计案例",
+        "装修灵感分享",
+        "小红书酒店探店"
+      ],
+      "description": "龙猫主题酒店走廊，木纹墙面搭配龙猫装饰画，大理石地面干净整洁，营造温馨童趣的入住氛围，适合亲子酒店展示。",
+      "file_name": "微信图片_20250121211118.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_20250121211118.jpg",
+      "analysis_method": "ai_vision"
+    },
+    {
+      "theme": "海绵宝宝主题酒店艺术走廊",
+      "elements": [
+        "海绵宝宝装饰画",
+        "木纹墙面",
+        "大理石地面",
+        "走廊灯",
+        "房门"
+      ],
+      "colors": [
+        "米色",
+        "白色",
+        "蓝色",
+        "灰色"
+      ],
+      "emotion": "欢乐、童趣、活泼、温馨",
+      "style": "现代简约卡通风格走廊设计",
+      "suitable_for": [
+        "酒店环境展示",
+        "亲子空间设计案例",
+        "装修灵感分享",
+        "小红书酒店探店"
+      ],
+      "description": "海绵宝宝主题酒店走廊，木纹墙面搭配海绵宝宝装饰画，大理石地面干净整洁，营造欢乐童趣的入住氛围，适合亲子酒店展示。",
+      "file_name": "微信图片_202501212111181.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_202501212111181.jpg",
+      "analysis_method": "ai_vision"
+    },
+    {
+      "theme": "卡通动物主题酒店艺术走廊",
+      "elements": [
+        "卡通动物装饰画",
+        "木纹墙面",
+        "大理石地面",
+        "走廊灯",
+        "安全出口标志"
+      ],
+      "colors": [
+        "米色",
+        "白色",
+        "蓝色",
+        "灰色"
+      ],
+      "emotion": "温馨、童趣、宁静、舒适",
+      "style": "现代简约卡通风格走廊设计",
+      "suitable_for": [
+        "酒店环境展示",
+        "亲子空间设计案例",
+        "装修灵感分享",
+        "小红书酒店探店"
+      ],
+      "description": "卡通动物主题酒店走廊，木纹墙面搭配熊和熊猫装饰画，大理石地面干净整洁，营造温馨童趣的入住氛围，适合亲子酒店展示。",
+      "file_name": "微信图片_20250121211119.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_20250121211119.jpg",
+      "analysis_method": "ai_vision"
+    },
+    {
+      "theme": "龙猫主题装饰画",
+      "elements": [
+        "大龙猫",
+        "小龙猫",
+        "叶子雨伞",
+        "雨滴",
+        "小精灵"
+      ],
+      "colors": [
+        "蓝色",
+        "灰色",
+        "白色",
+        "绿色"
+      ],
+      "emotion": "温馨、治愈、童趣、宁静",
+      "style": "日式卡通治愈风格插画",
+      "suitable_for": [
+        "亲子空间装饰",
+        "儿童房设计",
+        "动画主题展示",
+        "小红书家装分享"
+      ],
+      "description": "龙猫主题装饰画，大龙猫撑叶子伞，小龙猫和小精灵环绕，蓝色背景营造雨天温馨氛围，适合亲子空间装饰。",
+      "file_name": "微信图片_202501212111191.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_202501212111191.jpg",
+      "analysis_method": "ai_vision"
+    },
+    {
+      "theme": "LOFT 楼梯与迷你吧台区域",
+      "elements": [
+        "木质楼梯",
+        "白色小冰箱",
+        "电热水壶",
+        "置物架",
+        "瓶装水",
+        "杯子"
+      ],
+      "colors": [
+        "白色",
+        "浅木色",
+        "淡蓝色"
+      ],
+      "emotion": "整洁、便利、温馨、现代",
+      "style": "现代简约 LOFT 功能设计",
+      "suitable_for": [
+        "LOFT 房型设施展示",
+        "亲子套房细节",
+        "酒店配套设施",
+        "小红书酒店探店"
+      ],
+      "description": "LOFT 楼梯旁迷你吧台区，白色小冰箱、热水壶、置物架一应俱全，浅木色楼梯整洁现代，适合房型设施展示。",
+      "file_name": "微信图片_202501212111192.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_202501212111192.jpg",
+      "analysis_method": "ai_vision"
+    },
+    {
+      "theme": "蓝色主题现代卫浴空间",
+      "elements": [
+        "蓝色瓷砖墙",
+        "双洗手台",
+        "椭圆形镜子",
+        "玻璃淋浴房",
+        "白色毛巾"
+      ],
+      "colors": [
+        "蓝色",
+        "白色",
+        "米色",
+        "黑色"
+      ],
+      "emotion": "清爽、现代、洁净、舒适",
+      "style": "现代简约风格卫浴设计",
+      "suitable_for": [
+        "酒店卫生间展示",
+        "双台盆设计案例",
+        "装修灵感分享",
+        "小红书家装探店"
+      ],
+      "description": "蓝色主题现代卫浴，双洗手台配椭圆形镜子，蓝色瓷砖墙清爽现代，玻璃淋浴房干湿分离，适合酒店卫生间展示。",
+      "file_name": "微信图片_202501212111193.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_202501212111193.jpg",
+      "analysis_method": "ai_vision"
+    },
+    {
+      "theme": "简约风格圆形窗卧室",
+      "elements": [
+        "圆形磨砂窗",
+        "白色墙面",
+        "壁挂空调",
+        "榻榻米床台",
+        "灯带"
+      ],
+      "colors": [
+        "白色",
+        "灰色",
+        "浅木色"
+      ],
+      "emotion": "宁静、简约、现代、舒适",
+      "style": "现代极简主义卧室设计",
+      "suitable_for": [
+        "简约客房展示",
+        "小空间设计案例",
+        "装修灵感分享",
+        "小红书家装探店"
+      ],
+      "description": "简约风格卧室，白色墙面配圆形磨砂窗，榻榻米床台带灯带，空间利用高效，适合小空间设计展示。",
+      "file_name": "微信图片_20250121211120.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_20250121211120.jpg",
+      "analysis_method": "ai_vision"
+    },
+    {
+      "theme": "太空主题弧形卧室",
+      "elements": [
+        "圆形星空窗",
+        "弧形 LED 灯带",
+        "白色床品",
+        "蓝色墙面"
+      ],
+      "colors": [
+        "浅蓝色",
+        "白色",
+        "深蓝色",
+        "紫色"
+      ],
+      "emotion": "梦幻、宁静、未来感、浪漫",
+      "style": "科幻主题卧室设计",
+      "suitable_for": [
+        "主题酒店房间展示",
+        "太空风设计案例",
+        "情侣房宣传",
+        "小红书家装探店"
+      ],
+      "description": "太空主题卧室，圆形星空窗搭配弧形 LED 灯带，浅蓝色墙面营造梦幻未来感，适合主题酒店房间展示。",
+      "file_name": "微信图片_202501212111201.jpg",
+      "file_path": "/home/tbxsx/XHS_Post/local_images/太空修/微信图片_202501212111201.jpg",
+      "analysis_method": "ai_vision"
     }
-  ],
-  "image_count": 10
+  ]
 }
