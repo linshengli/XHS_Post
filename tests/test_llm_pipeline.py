@@ -64,3 +64,4 @@ def test_llm_generation_uses_mock_provider_and_crawled_images(tmp_path: Path):
     assert "https://img.example.com/hotel-cover.jpg" in content
     assert "## 📸 配图" in content
     assert "#千岛湖亲子酒店" in content
+    assert "*Provider：mock*" in content

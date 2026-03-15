@@ -55,6 +55,7 @@ def _format_post_markdown(post: dict[str, Any]) -> str:
             f"*生成时间：{datetime.now().isoformat()}*",
             f"*主题：{post['topic']}*",
             f"*角度：{post['angle']}*",
+            f"*Provider：{post['provider']}*",
         ]
     )
     return "\n".join(lines)
@@ -85,6 +86,7 @@ def run_llm_post_generation_workflow(request: LLMPostWorkflowRequest) -> list[Pa
             "images": images,
             "topic": request.topic,
             "angle": angle,
+            "provider": response.get("_provider", request.provider or "unknown"),
         }
         output_file = request.output_dir / f"{request.topic}_{index:02d}.md"
         output_file.write_text(_format_post_markdown(post), encoding="utf-8")
