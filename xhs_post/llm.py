@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import os
 import random
 import subprocess
@@ -11,6 +12,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+logger = logging.getLogger(__name__)
 
 DEFAULT_TIMEOUT_SECONDS = 60
 DEFAULT_RETRIES = 2
@@ -219,6 +221,7 @@ def _openclaw_cli_request(settings: ProviderSettings, prompt: str) -> dict[str, 
         f"{prompt}\n\n"
         "重要：请直接返回 JSON 对象，不要使用 markdown 代码块包裹。"
     )
+    logger.debug(f"OpenClaw 请求：model={settings.model}, timeout={settings.timeout_seconds}s")
     try:
         result = subprocess.run(
             ["openclaw", "agent", "--agent", "main", "--message", enhanced_prompt, "--local"],
@@ -228,12 +231,16 @@ def _openclaw_cli_request(settings: ProviderSettings, prompt: str) -> dict[str, 
             check=False,
         )
     except subprocess.TimeoutExpired as exc:
+        logger.error(f"OpenClaw CLI 超时 ({settings.timeout_seconds}s)")
         raise LLMError("OpenClaw CLI timeout") from exc
     except FileNotFoundError as exc:
+        logger.error("OpenClaw CLI 未找到 (未安装或不在 PATH 中)")
         raise LLMError("OpenClaw CLI not found") from exc
 
     if result.returncode != 0:
-        raise LLMError(f"OpenClaw CLI failed: {result.stderr.strip()}")
+        stderr_msg = result.stderr.strip()
+        logger.error(f"OpenClaw CLI 失败：{stderr_msg[:200]}..." if len(stderr_msg) > 200 else f"OpenClaw CLI 失败：{stderr_msg}")
+        raise LLMError(f"OpenClaw CLI failed: {stderr_msg}")
 
     output_lines = result.stdout.strip().splitlines()
     content_lines = []
@@ -244,9 +251,12 @@ def _openclaw_cli_request(settings: ProviderSettings, prompt: str) -> dict[str, 
             content_lines.append(line)
     content = "\n".join(content_lines)
 
+    logger.debug(f"OpenClaw 响应长度：{len(content)} 字符")
+
     try:
         return _extract_json_payload(content)
     except json.JSONDecodeError:
+        logger.debug("OpenClaw 响应 JSON 解析失败，使用降级模式")
         pass
 
     topic = "主题"
@@ -350,26 +360,57 @@ def _call_provider_once(settings: ProviderSettings, prompt: str) -> dict[str, An
 
 
 def generate_structured_post(prompt: str, provider: str | None = None) -> dict[str, Any]:
+    """生成结构化的笔记内容，支持多 provider 故障转移和重试。
+    
+    Args:
+        prompt: 提示词
+        provider: 指定的 provider（可选）
+    
+    Returns:
+        包含 title, content, tags 的字典
+    
+    Raises:
+        LLMError: 所有 provider 都失败时抛出
+    """
     primary_provider = _resolve_requested_provider(provider)
     provider_order = [primary_provider, *_resolve_fallback_providers(primary_provider)]
     errors: list[str] = []
+    
+    logger.info(f"开始生成内容，主 provider={primary_provider}, fallbacks={provider_order[1:]}")
 
     for provider_name in provider_order:
         try:
             settings = _resolve_provider_settings(provider_name)
+            logger.debug(f"Provider {provider_name} 配置：model={settings.model}, timeout={settings.timeout_seconds}s, retries={settings.retries}")
         except LLMError as exc:
-            errors.append(f"{provider_name} config: {exc}")
+            error_msg = f"{provider_name} 配置错误：{exc}"
+            logger.warning(error_msg)
+            errors.append(error_msg)
             continue
+        
         for attempt in range(settings.retries + 1):
             try:
+                logger.debug(f"调用 {provider_name} (尝试 {attempt + 1}/{settings.retries + 1})")
                 payload = _call_provider_once(settings, prompt)
                 normalized = _validate_post_payload(payload)
                 normalized["_provider"] = provider_name
+                logger.info(f"内容生成成功：provider={provider_name}, title={normalized['title'][:30]}...")
                 return normalized
             except (urllib.error.URLError, json.JSONDecodeError, KeyError, IndexError, LLMError) as exc:
-                errors.append(f"{provider_name} attempt {attempt + 1}: {exc}")
+                error_msg = f"{provider_name} 尝试 {attempt + 1} 失败：{exc}"
+                logger.warning(error_msg)
+                errors.append(error_msg)
                 if attempt >= settings.retries:
                     break
-                time.sleep(min(2**attempt, 3))
+                wait_time = min(2**attempt, 3)
+                logger.debug(f"等待 {wait_time}s 后重试...")
+                time.sleep(wait_time)
+            except Exception as exc:
+                error_msg = f"{provider_name} 未知错误：{type(exc).__name__}: {exc}"
+                logger.error(error_msg)
+                errors.append(error_msg)
+                break
 
-    raise LLMError("All providers failed: " + " | ".join(errors))
+    error_summary = "所有 provider 失败：" + " | ".join(errors)
+    logger.error(error_summary)
+    raise LLMError(error_summary)
