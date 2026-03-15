@@ -35,5 +35,6 @@ def run_hotel_optimization_workflow(request: HotelOptimizationWorkflowRequest) -
         "files_optimized": sum(1 for result in results if result["optimizations"]),
         "results": results,
     }
-    save_json(request.output_dir / "optimization_report.json", report)
+    report_path = request.report_path or (request.output_dir / "optimization_report.json")
+    save_json(report_path, report)
     return report

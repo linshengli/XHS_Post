@@ -9,9 +9,12 @@ from _project_paths import ensure_project_root_on_path, resolve_base_dir
 ensure_project_root_on_path()
 
 from xhs_post.models import ValidationWorkflowRequest
+from xhs_post.paths import ensure_runtime_layout, resolve_validation_report_dir
 from xhs_post.workflows.release_validation import run_validation_workflow
 
 BASE_DIR = resolve_base_dir()
+ensure_runtime_layout(BASE_DIR)
+VALIDATION_DIR = resolve_validation_report_dir(BASE_DIR)
 
 
 def main():
@@ -22,7 +25,7 @@ def main():
     args = parser.parse_args()
 
     input_dir = Path(args.input_dir)
-    output_file = Path(args.output) if args.output else input_dir / "quality_report.json"
+    output_file = Path(args.output) if args.output else VALIDATION_DIR / f"quality_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
 
     print("=" * 60)
     print("📊 小红书笔记质量验证与评分报告")

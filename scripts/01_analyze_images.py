@@ -16,12 +16,16 @@ from _project_paths import ensure_project_root_on_path, resolve_base_dir
 ensure_project_root_on_path()
 
 from xhs_post.models import ImageWorkflowRequest
+from xhs_post.paths import ensure_runtime_layout, resolve_config_dir, resolve_image_analysis_artifact_file
+from xhs_post.storage import mirror_json_to_legacy
 from xhs_post.workflows.image_analysis import run_image_analysis_workflow
 
 
 BASE_DIR = resolve_base_dir()
+ensure_runtime_layout(BASE_DIR)
 IMAGES_DIR = BASE_DIR / "local_images"
-OUTPUT_FILE = BASE_DIR / "config" / "image_analysis.json"
+OUTPUT_FILE = resolve_image_analysis_artifact_file(BASE_DIR)
+LEGACY_OUTPUT_FILE = resolve_config_dir(BASE_DIR) / "image_analysis.json"
 
 def main():
     parser = argparse.ArgumentParser(description="图片分析 workflow")
@@ -43,6 +47,8 @@ def main():
             topic=args.topic,
         )
     )
+    if output_file == OUTPUT_FILE:
+        mirror_json_to_legacy(output_file, LEGACY_OUTPUT_FILE)
 
     print(f"\n{'=' * 60}")
     print(f"✅ 图片分析完成！")

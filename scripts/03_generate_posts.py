@@ -37,7 +37,15 @@ from _project_paths import ensure_project_root_on_path, resolve_base_dir
 
 ensure_project_root_on_path()
 
+from xhs_post.paths import (
+    ensure_runtime_layout,
+    resolve_config_dir,
+    resolve_generation_state_file,
+    resolve_image_analysis_artifact_file,
+    resolve_trending_artifact_file,
+)
 from xhs_post.storage import load_json, load_jsonl_files, save_json
+from xhs_post.storage import seed_file_from_legacy
 from xhs_post.images import load_image_analysis, select_images_for_post
 from xhs_post.topic import (
     expand_keywords,
@@ -48,10 +56,15 @@ from xhs_post.topic import (
 
 # 配置路径
 BASE_DIR = resolve_base_dir()
+ensure_runtime_layout(BASE_DIR)
 INPUT_DIR = BASE_DIR / "xhs_post_from_search" / "jsonl"
-TRENDING_ANALYSIS_FILE = BASE_DIR / "config" / "trending_analysis.json"
-STATE_FILE = BASE_DIR / "config" / "generation_state.json"
-IMAGE_ANALYSIS_FILE = BASE_DIR / "config" / "image_analysis.json"
+CONFIG_DIR = resolve_config_dir(BASE_DIR)
+TRENDING_ANALYSIS_FILE = resolve_trending_artifact_file(BASE_DIR)
+LEGACY_TRENDING_ANALYSIS_FILE = CONFIG_DIR / "trending_analysis.json"
+STATE_FILE = resolve_generation_state_file(BASE_DIR)
+LEGACY_STATE_FILE = CONFIG_DIR / "generation_state.json"
+IMAGE_ANALYSIS_FILE = resolve_image_analysis_artifact_file(BASE_DIR)
+LEGACY_IMAGE_ANALYSIS_FILE = CONFIG_DIR / "image_analysis.json"
 OUTPUT_DIR = BASE_DIR / "generated_posts"
 
 # 爆款标题公式 - 通用版
@@ -907,6 +920,9 @@ def main():
 
     # 加载数据
     print("\n📂 加载数据...")
+    seed_file_from_legacy(TRENDING_ANALYSIS_FILE, LEGACY_TRENDING_ANALYSIS_FILE, default_data={})
+    seed_file_from_legacy(STATE_FILE, LEGACY_STATE_FILE, default_data={"used_combinations": [], "daily_history": [], "total_posts_generated": 0, "last_generation": {}})
+    seed_file_from_legacy(IMAGE_ANALYSIS_FILE, LEGACY_IMAGE_ANALYSIS_FILE, default_data={})
     trending_data = load_json(trending_analysis_file)
     state_data = load_json(STATE_FILE)
     image_analyses = load_image_analysis(IMAGE_ANALYSIS_FILE)

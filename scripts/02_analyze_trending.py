@@ -25,7 +25,8 @@ from _project_paths import ensure_project_root_on_path, resolve_base_dir
 
 ensure_project_root_on_path()
 
-from xhs_post.storage import load_jsonl_files
+from xhs_post.paths import ensure_runtime_layout, resolve_config_dir, resolve_trending_artifact_file
+from xhs_post.storage import load_jsonl_files, mirror_json_to_legacy, save_json
 from xhs_post.topic import (
     expand_keywords,
     filter_posts_by_source_keyword,
@@ -36,7 +37,9 @@ from xhs_post.topic import (
 # 配置路径
 BASE_DIR = resolve_base_dir()
 INPUT_DIR = BASE_DIR / "xhs_post_from_search" / "jsonl"
-OUTPUT_FILE = BASE_DIR / "config" / "trending_analysis.json"
+ensure_runtime_layout(BASE_DIR)
+OUTPUT_FILE = resolve_trending_artifact_file(BASE_DIR)
+LEGACY_OUTPUT_FILE = resolve_config_dir(BASE_DIR) / "trending_analysis.json"
 
 # 高赞阈值
 HIGH_LIKE_THRESHOLD = 3000
@@ -419,9 +422,9 @@ def main():
         return None
     
     # 保存结果
-    output_file.parent.mkdir(parents=True, exist_ok=True)
-    with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(analysis, f, ensure_ascii=False, indent=2)
+    save_json(output_file, analysis)
+    if output_file == OUTPUT_FILE:
+        mirror_json_to_legacy(output_file, LEGACY_OUTPUT_FILE)
     
     print(f"\n{'=' * 60}")
     print("✅ 热门内容分析完成！")

@@ -10,11 +10,22 @@ from _project_paths import ensure_project_root_on_path, resolve_base_dir
 ensure_project_root_on_path()
 
 from xhs_post.models import LLMPostWorkflowRequest
+from xhs_post.paths import (
+    ensure_runtime_layout,
+    resolve_config_dir,
+    resolve_generation_state_file,
+    resolve_trending_artifact_file,
+)
+from xhs_post.storage import seed_file_from_legacy
 from xhs_post.workflows.llm_post_generation import run_llm_post_generation_workflow
 
 BASE_DIR = resolve_base_dir()
-CONFIG_FILE = BASE_DIR / "config" / "trending_analysis.json"
-STATE_FILE = BASE_DIR / "config" / "generation_state.json"
+ensure_runtime_layout(BASE_DIR)
+CONFIG_DIR = resolve_config_dir(BASE_DIR)
+CONFIG_FILE = resolve_trending_artifact_file(BASE_DIR)
+LEGACY_CONFIG_FILE = CONFIG_DIR / "trending_analysis.json"
+STATE_FILE = resolve_generation_state_file(BASE_DIR)
+LEGACY_STATE_FILE = CONFIG_DIR / "generation_state.json"
 RAW_POSTS_DIR = BASE_DIR / "xhs_post_from_search" / "jsonl"
 OUTPUT_DIR = BASE_DIR / "generated_posts" / datetime.now().strftime("%Y-%m-%d")
 
@@ -33,6 +44,8 @@ def main():
     print("=" * 60)
     print(f"\n🎯 生成主题：{args.topic}")
     print(f"📊 生成数量：{args.count} 篇\n")
+    seed_file_from_legacy(STATE_FILE, LEGACY_STATE_FILE, default_data={"used_combinations": [], "daily_history": [], "total_posts_generated": 0, "last_generation": {}, "content_signatures": []})
+    seed_file_from_legacy(CONFIG_FILE, LEGACY_CONFIG_FILE, default_data={})
     output_files = run_llm_post_generation_workflow(
         LLMPostWorkflowRequest(
             topic=args.topic,

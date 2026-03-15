@@ -40,6 +40,7 @@ class HotelOptimizationWorkflowRequest:
     input_dir: Path
     output_dir: Path
     personas_dir: Path
+    report_path: Path | None = None
 
 
 @dataclass(slots=True)

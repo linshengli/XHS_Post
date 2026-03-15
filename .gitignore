@@ -2,3 +2,10 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .ruff_cache/
+state/*.json
+artifacts/**/*.json
+!state/.gitkeep
+!artifacts/.gitkeep
+!artifacts/trending/.gitkeep
+!artifacts/images/.gitkeep
+!artifacts/validation/.gitkeep
