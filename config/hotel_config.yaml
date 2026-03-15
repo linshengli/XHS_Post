@@ -1,0 +1,141 @@
+# 默认酒店配置 - 用于内容中的酒店植入
+
+hotel:
+  name: "千岛湖 XX 亲子度假酒店"
+  short_name: "XX 酒店"
+  
+  # 酒店亮点
+  highlights:
+    - "千岛湖畔一线湖景"
+    - "超大儿童乐园（室内 + 室外）"
+    - "恒温泳池（全年开放）"
+    - "亲子主题房型（太空/森林/海洋）"
+    - "免费亲子活动（手工/绘画/游戏）"
+    - "宠物友好（可带宠物入住）"
+  
+  # 房型信息
+  room_types:
+    - name: "亲子套房"
+      size: "60㎡"
+      features:
+        - "1 张大床 +1 张儿童床"
+        - "湖景阳台"
+        - "儿童洗漱用品"
+        - "迷你厨房"
+      price_range: "600-900 元/晚"
+      
+    - name: "太空主题房"
+      size: "50㎡"
+      features:
+        - "太空舱儿童床"
+        - "星空投影"
+        - "宇航员装饰"
+        - "科普图书角"
+      price_range: "700-1000 元/晚"
+      
+    - name: "湖景大床房"
+      size: "45㎡"
+      features:
+        - "1.8m 大床"
+        - "全景落地窗"
+        - "浴缸"
+        - "迷你吧"
+      price_range: "500-800 元/晚"
+  
+  # 餐饮
+  dining:
+    breakfast:
+      time: "7:00-10:00"
+      features:
+        - "50+ 种自助菜品"
+        - "现做 pancake/面条"
+        - "儿童餐具齐全"
+        - "提供婴儿辅食"
+    
+    restaurants:
+      - name: "湖景餐厅"
+        cuisine: "杭帮菜/千岛湖特色"
+        price: "人均 100-150 元"
+        features:
+          - "湖景位需预约"
+          - "儿童餐可选"
+          - "推荐：千岛湖鱼头汤"
+  
+  # 亲子设施
+  kids_facilities:
+    - "室内儿童乐园（200㎡）"
+    - "室外游乐场"
+    - "儿童泳池（恒温）"
+    - "亲子活动室"
+    - "绘本馆"
+    - "婴儿床/推车租赁"
+  
+  # 周边景点（车程）
+  nearby_attractions:
+    - name: "天屿山观景台"
+      distance: "5 分钟"
+      description: "俯瞰千岛湖全景，缆车上下"
+      
+    - name: "中心湖区"
+      distance: "10 分钟"
+      description: "坐船游湖，轻松不累"
+      
+    - name: "啤酒小镇"
+      distance: "8 分钟"
+      description: "欧式建筑，拍照出片"
+      
+    - name: "骑龙巷"
+      distance: "10 分钟"
+      description: "夜市美食街"
+  
+  # 交通
+  transportation:
+   自驾：
+      - "上海出发：4-5 小时"
+      - "杭州出发：2-2.5 小时"
+      - "酒店免费停车场"
+    
+    高铁：
+      - "千岛湖站"
+      - "酒店可接送（需预约）"
+      - "车程约 30 分钟"
+  
+  # 预订信息
+  booking:
+    phone: "0571-XXXXXXXX"
+    platforms:
+      - "携程"
+      - "美团"
+      - "飞猪"
+      - "官方小程序"
+    tips:
+      - "周末价格涨 200-300 元"
+      - "节假日需提前 1-2 周预订"
+      - "含双早"
+      - "可延迟退房至 14:00（视房态）"
+  
+  # 植入话术模板
+  insertion_templates:
+    soft: |
+      这次入住的 {hotel_name} 真的很惊喜，{highlight}，特别适合 {target}。
+      房间 {room_feature}，孩子特别喜欢 {kids_feature}。
+      早餐也很丰富，{breakfast_feature}，大人小孩都能找到喜欢的。
+      
+    medium: |
+      🏨 住宿：{hotel_name}
+      📍 位置：{location}（近 {nearby_attraction}）
+      💰 价格：{price}（含双早）
+      ✅ 亮点：{highlights}
+      👨‍👩‍👧 亲子设施：{kids_facilities}
+      
+      我们住的是 {room_type}，{room_description}。
+      酒店还有 {extra_facilities}，娃玩得不想走～
+      
+    hard: |
+      🎁 粉丝福利！
+      通过我们预订 {hotel_name} 可享：
+      ✅ 免费升级房型（视房态）
+      ✅ 延迟退房至 14:00
+      ✅ 欢迎水果 + 迷你吧
+      📱 预订：{booking_info}
+      （报我们名字就好～）

@@ -91,17 +91,20 @@ def cmd_generate(args):
     })
     seed_file_from_legacy(config_file, legacy_config_file, default_data={})
     
+    # 获取热点分析输入文件（使用 getattr 兼容 pipeline 调用）
+    trending_input = getattr(args, 'input', None)
+    
     # 执行工作流
     output_files = run_llm_post_generation_workflow(
         LLMPostWorkflowRequest(
             topic=args.topic,
             count=args.count,
-            trending_input=Path(args.input) if args.input else config_file,
+            trending_input=Path(trending_input) if trending_input else config_file,
             output_dir=output_dir,
             raw_posts_dir=raw_posts_dir,
             state_file=state_file,
-            provider=args.provider,
-            seed=args.seed,
+            provider=getattr(args, 'provider', None),
+            seed=getattr(args, 'seed', None),
         )
     )
     
@@ -216,22 +219,75 @@ def cmd_multi_account(args):
 
 
 def cmd_pipeline(args):
-    """完整流程：分析 + 生成"""
+    """完整流程：分析 + 生成 + 酒店植入"""
     print("=" * 60)
-    print("🚀 执行完整流程：分析 → 生成")
+    print("🚀 执行完整流程：分析 → 生成 → 酒店植入")
     print("=" * 60)
     print(f"🎯 主题：{args.topic}")
     print()
     
     # Step 1: 分析
-    print("📊 Step 1/2: 热点分析...")
+    print("📊 Step 1/3: 热点分析...")
     if cmd_analyze(args) != 0:
         print("❌ 分析失败")
         return 1
     
     # Step 2: 生成
-    print("\n📝 Step 2/2: 生成笔记...")
-    return cmd_generate(args)
+    print("\n📝 Step 2/3: 生成笔记...")
+    if cmd_generate(args) != 0:
+        print("❌ 生成失败")
+        return 1
+    
+    # Step 3: 酒店植入优化（自动）
+    print("\n🏨 Step 3/3: 酒店植入优化...")
+    BASE_DIR = resolve_base_dir()
+    output_dir = Path(args.output_dir) if args.output_dir else BASE_DIR / "generated_posts" / datetime.now().strftime("%Y-%m-%d")
+    personas_dir = BASE_DIR / "config" / "personas"
+    
+    if personas_dir.exists():
+        from xhs_post.models import HotelOptimizationWorkflowRequest
+        from xhs_post.workflows.hotel_optimization import run_hotel_optimization_workflow
+        
+        optimized_dir = output_dir.parent / f"{output_dir.name}_optimized"
+        report_file = output_dir.parent / "hotel_optimization_report.json"
+        
+        try:
+            report = run_hotel_optimization_workflow(
+                HotelOptimizationWorkflowRequest(
+                    input_dir=output_dir,
+                    output_dir=optimized_dir,
+                    personas_dir=personas_dir,
+                    report_path=report_file,
+                )
+            )
+            print(f"✅ 酒店植入完成")
+            print(f"   优化文件：{report['files_optimized']}/{report['total_files']}")
+            print(f"   输出目录：{optimized_dir}")
+        except Exception as e:
+            print(f"⚠️  酒店植入跳过：{e}")
+    else:
+        print("⚠️  无人设配置，跳过酒店植入")
+    
+    return 0
+
+
+def cmd_download_images(args):
+    """下载图片"""
+    import subprocess
+    script = BASE_DIR / "scripts/download_images.py"
+    cmd = [sys.executable, str(script)]
+    
+    if args.topic:
+        cmd.extend(["--topic", args.topic])
+    if args.input_dir:
+        cmd.extend(["--input-dir", str(args.input_dir)])
+    if args.output_dir:
+        cmd.extend(["--output-dir", str(args.output_dir)])
+    if args.count:
+        cmd.extend(["--count", str(args.count)])
+    
+    result = subprocess.run(cmd, cwd=BASE_DIR)
+    return result.returncode
 
 
 def cmd_clean(args):
@@ -307,12 +363,20 @@ def main():
     p_multi.set_defaults(func=cmd_multi_account)
     
     # pipeline 命令
-    p_pipe = subparsers.add_parser("pipeline", help="完整流程（分析 + 生成）")
+    p_pipe = subparsers.add_parser("pipeline", help="完整流程（分析 + 生成 + 酒店植入）")
     p_pipe.add_argument("--topic", "-t", type=str, required=True, help="主题")
     p_pipe.add_argument("--count", "-c", type=int, default=8, help="生成数量")
     p_pipe.add_argument("--keywords", "-k", type=str, help="自定义关键词")
     p_pipe.add_argument("--output-dir", "-o", type=str, help="输出目录")
     p_pipe.set_defaults(func=cmd_pipeline)
+    
+    # download-images 命令
+    p_dl = subparsers.add_parser("download-images", help="下载小红书图片到本地")
+    p_dl.add_argument("--topic", "-t", type=str, help="主题名称")
+    p_dl.add_argument("--input-dir", type=Path, help="Markdown 文件目录")
+    p_dl.add_argument("--output-dir", "-o", type=Path, help="输出目录")
+    p_dl.add_argument("--count", "-c", type=int, default=20, help="最多下载数量")
+    p_dl.set_defaults(func=cmd_download_images)
     
     # clean 命令
     p_clean = subparsers.add_parser("clean", help="清理临时文件")
