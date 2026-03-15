@@ -28,6 +28,7 @@ OUTPUT_FILE = resolve_image_analysis_artifact_file(BASE_DIR)
 LEGACY_OUTPUT_FILE = resolve_config_dir(BASE_DIR) / "image_analysis.json"
 
 def main():
+    print("⚠️ 兼容入口：推荐改用 `python scripts/xhs_cli.py analyze-images ...`")
     parser = argparse.ArgumentParser(description="图片分析 workflow")
     parser.add_argument("--images-dir", type=str, default=str(IMAGES_DIR), help="图片目录")
     parser.add_argument("--output", type=str, default=str(OUTPUT_FILE), help="输出 JSON 路径")

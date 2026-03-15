@@ -351,6 +351,7 @@ def analyze_trending_posts(posts: list, topic: str) -> dict:
     return analysis
 
 def main():
+    print("⚠️ 兼容入口：推荐改用 `python scripts/xhs_cli.py analyze ...`")
     # 解析命令行参数
     parser = argparse.ArgumentParser(description='小红书热门内容分析工具 - 支持主题筛选')
     parser.add_argument('--topic', type=str, required=True,

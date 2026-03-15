@@ -17,6 +17,7 @@ VALIDATION_DIR = resolve_validation_report_dir(BASE_DIR)
 
 
 def main():
+    print("⚠️ 兼容入口：推荐改用 `python scripts/xhs_cli.py optimize-hotel ...`")
     parser = argparse.ArgumentParser(description='酒店植入优化脚本')
     parser.add_argument('--input-dir', type=str, required=True, help='输入目录（草稿）')
     parser.add_argument('--output-dir', type=str, required=True, help='输出目录（优化后）')

@@ -18,6 +18,7 @@ VALIDATION_DIR = resolve_validation_report_dir(BASE_DIR)
 
 
 def main():
+    print("⚠️ 兼容入口：推荐改用 `python scripts/xhs_cli.py validate ...` 或 `score ...`")
     parser = argparse.ArgumentParser(description="小红书笔记质量验证与评分")
     parser.add_argument("--input-dir", type=str, default=str(BASE_DIR / "generated_posts" / "2026-03-15"))
     parser.add_argument("--output", type=str, default=None)

@@ -66,3 +66,19 @@ class ReleaseCandidateWorkflowRequest:
     use_llm: bool = False
     provider: str | None = None
     seed: int | None = None
+
+
+@dataclass(slots=True)
+class ImagePlanWorkflowRequest:
+    topic: str
+    image_analysis_path: Path
+    output_path: Path
+    angle: str | None = None
+    count: int = 4
+
+
+@dataclass(slots=True)
+class DraftRequirementsWorkflowRequest:
+    topic: str
+    trending_input: Path
+    output_path: Path

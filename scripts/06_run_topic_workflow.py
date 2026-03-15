@@ -13,6 +13,7 @@ from xhs_post.workflows.topic_pipeline import run_topic_pipeline
 
 
 def main() -> None:
+    print("⚠️ 兼容入口：推荐改用 `python scripts/xhs_cli.py release-candidate ...`")
     parser = argparse.ArgumentParser(description="统一执行主题分析与内容生成 workflow")
     parser.add_argument("--topic", required=True, help="主题名称")
     parser.add_argument("--count", type=int, default=10, help="生成篇数")
