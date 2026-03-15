@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 
 from xhs_post.models import TopicWorkflowRequest
-from xhs_post.paths import resolve_base_dir, resolve_repo_root
+from xhs_post.paths import resolve_artifacts_dir, resolve_base_dir, resolve_repo_root
 
 
 def _run_command(command: list[str], env: dict[str, str], cwd: Path) -> None:
@@ -18,9 +18,7 @@ def run_topic_pipeline(request: TopicWorkflowRequest) -> dict[str, str]:
     base_dir = resolve_base_dir()
     scripts_dir = repo_root / "scripts"
 
-    analysis_output = request.analysis_output or (
-        base_dir / "config" / f"trending_analysis_{request.topic}.json"
-    )
+    analysis_output = request.analysis_output or (resolve_artifacts_dir(base_dir) / "trending" / f"{request.topic}.json")
     generation_output = request.generation_output or (base_dir / "generated_posts")
 
     env = os.environ | {"XHS_POST_BASE_DIR": str(base_dir)}

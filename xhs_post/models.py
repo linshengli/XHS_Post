@@ -55,3 +55,14 @@ class LLMPostWorkflowRequest:
     seed: int | None = None
     similarity_threshold: float = 0.82
     max_attempts_per_post: int = 3
+
+
+@dataclass(slots=True)
+class ReleaseCandidateWorkflowRequest:
+    topic: str
+    count: int
+    output_dir: Path
+    validation_output: Path
+    use_llm: bool = False
+    provider: str | None = None
+    seed: int | None = None
