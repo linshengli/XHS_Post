@@ -1,0 +1,89 @@
+# XHS_Post 统一配置文件
+
+# 项目路径
+paths:
+  base: "~/XHS_Post"
+  data: "~/XHS_Post/xhs_post_from_search"
+  output: "~/XHS_Post/generated_posts"
+  logs: "~/XHS_Post/logs"
+
+# LLM 配置
+llm:
+  provider: "dashscope"  # openai, anthropic, dashscope
+  model: "qwen3.5-plus"
+  api_key: ""  # 从环境变量读取
+  timeout: 60  # 秒
+  retries: 2
+
+# 生成配置
+generation:
+  default_count: 8
+  temperature: 0.8
+  max_tokens: 4000
+  max_attempts_per_post: 3  # 每篇笔记最大尝试次数
+  similarity_threshold: 0.7  # 去重相似度阈值
+  
+  # 角度列表（默认）
+  default_angles:
+    - 保姆级攻略
+    - 避坑指南
+    - 实测体验
+    - 本地人推荐
+    - 带娃攻略
+  
+  # 按主题定制角度（可选）
+  topic_angles:
+    "亲子酒店":
+      - 亲子体验
+      - 房型测评
+      - 活动攻略
+      - 遛娃设施
+      - 服务细节
+    "旅游攻略":
+      - 路线规划
+      - 景点推荐
+      - 交通指南
+      - 住宿攻略
+      - 美食打卡
+    "骑行":
+      - 路线推荐
+      - 装备指南
+      - 难度分析
+      - 风景点评
+      - 安全提示
+
+# 提示词模板
+prompts:
+  # 基础生成提示词
+  post_generation: |
+    请输出 JSON，包含 title, content, tags 三个字段。
+    主题：{topic}
+    角度：{angle}
+    价值点：{value_points}
+    场景：{scenes}
+    参考标签：{tags}
+    要求：标题 20 字以内；正文适合小红书图文；tags 返回数组。
+  
+  # 系统提示词
+  system_prompt: "你是小红书图文笔记写作助手。请只返回 JSON，包含 title、content、tags。"
+  
+  # LLM 输出要求
+  llm_instructions: "重要：请直接返回 JSON 对象，不要使用 markdown 代码块包裹。"
+
+# 内容配置
+content:
+  remove_hashtags: true
+  dedup_threshold: 0.7
+  
+  # 发布时间选项
+  posting_times:
+    - "早上 7:30-9:00 (早高峰)"
+    - "中午 12:00-14:00 (午休)"
+    - "晚上 18:00-20:00 (晚高峰)"
+    - "晚上 21:00-23:00 (睡前)"
+
+# 日志配置
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file_output: true
+  console_output: true
