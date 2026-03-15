@@ -4,17 +4,22 @@
 
 用法:
     python scripts/download_images.py --input-dir generated_posts/2026-03-15
-    python scripts/download_images.py --topic "千岛湖好玩的地方"
+    python xhs.py download-images --topic "千岛湖好玩的地方" --count 30
 """
 
 import argparse
 import subprocess
+import re
 import sys
 from pathlib import Path
 from datetime import datetime
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-IMAGES_DIR = BASE_DIR / "local_images"
+LOCAL_IMAGES_DIR = BASE_DIR / "local_images"
+
+# 添加项目路径
+sys.path.insert(0, str(BASE_DIR))
+sys.path.insert(0, str(BASE_DIR / "scripts"))
 
 
 def extract_image_urls_from_markdown(md_file: Path) -> list[str]:
@@ -23,7 +28,6 @@ def extract_image_urls_from_markdown(md_file: Path) -> list[str]:
     content = md_file.read_text(encoding='utf-8')
     
     # 匹配 Markdown 图片格式：![alt](url)
-    import re
     pattern = r'!\[.*?\]\((https?://[^\s\)]+)\)'
     matches = re.findall(pattern, content)
     urls.extend(matches)
@@ -68,40 +72,79 @@ def download_image(url: str, output_dir: Path, topic: str = None) -> Path | None
         return None
 
 
-def download_images_for_topic(topic: str, count: int = 10) -> list[Path]:
-    """为指定主题下载图片（从热点分析中获取）"""
-    from xhs_post.storage import load_json
+def download_images_from_crawled(topic: str, count: int = 10, output_dir: Path = None) -> list[Path]:
+    """从爬取的原始数据中提取并下载图片"""
+    from xhs_post.storage import load_jsonl_files
+    from xhs_post.topic import filter_posts_by_source_keyword
     
-    # 加载热点分析
-    analysis_file = BASE_DIR / "artifacts" / "trending" / "current.json"
-    if not analysis_file.exists():
-        print(f"❌ 热点分析文件不存在：{analysis_file}")
+    if output_dir is None:
+        output_dir = LOCAL_IMAGES_DIR
+    
+    # 加载爬取的数据
+    jsonl_dir = BASE_DIR / "xhs_post_from_search" / "jsonl"
+    if not jsonl_dir.exists():
+        print(f"❌ 爬取数据目录不存在：{jsonl_dir}")
         return []
     
-    data = load_json(analysis_file)
-    images = data.get("images", [])
+    print(f"📂 加载爬取数据：{jsonl_dir}")
+    posts = load_jsonl_files(jsonl_dir)
     
-    if not images:
-        print("⚠️  热点分析中没有图片数据")
+    # 筛选主题相关
+    filtered = filter_posts_by_source_keyword(posts, topic)
+    print(f"   找到 {len(filtered)} 篇相关笔记")
+    
+    if not filtered:
+        print("⚠️  没有相关笔记")
         return []
     
+    # 提取图片 URL
     downloaded = []
-    for img in images[:count]:
-        url = img.get("url") or img.get("path")
-        if url and url.startswith("http"):
-            path = download_image(url, IMAGES_DIR, topic)
-            if path:
-                downloaded.append(path)
+    for post in filtered[:count * 2]:  # 多遍历一些以确保下载足够数量
+        image_data = post.get('image_list') or post.get('images_list') or post.get('images', [])
+        if not image_data:
+            continue
+        
+        # image_list 可能是字符串或列表
+        if isinstance(image_data, str):
+            image_urls = [image_data]
+        elif isinstance(image_data, list):
+            image_urls = image_data
+        else:
+            continue
+        
+        for img in image_urls[:3]:  # 每篇最多下载 3 张
+            if len(downloaded) >= count:
+                break
+            
+            # 图片 URL 可能是 dict 或 string
+            if isinstance(img, dict):
+                url = img.get('url') or img.get('url_default') or img.get('path')
+            else:
+                url = img
+            
+            if url and url.startswith("http"):
+                path = download_image(url, output_dir, topic)
+                if path:
+                    downloaded.append(path)
+        
+        if len(downloaded) >= count:
+            break
     
     return downloaded
+
+
+def download_images_for_topic(topic: str, count: int = 10, output_dir: Path = None) -> list[Path]:
+    """为指定主题下载图片"""
+    # 尝试从爬取数据下载
+    return download_images_from_crawled(topic, count, output_dir)
 
 
 def main():
     parser = argparse.ArgumentParser(description="下载小红书图片到本地")
     parser.add_argument("--topic", "-t", type=str, help="主题名称")
-    parser.add_argument("--input-dir", type=Path, help="包含 Markdown 文件的目录")
-    parser.add_argument("--output-dir", type=Path, default=IMAGES_DIR, help="输出目录")
-    parser.add_argument("--count", "-c", type=int, default=20, help="最多下载图片数量")
+    parser.add_argument("--input-dir", type=Path, help="Markdown 文件目录")
+    parser.add_argument("--output-dir", "-o", type=Path, default=LOCAL_IMAGES_DIR, help="输出目录")
+    parser.add_argument("--count", "-c", type=int, default=20, help="最多下载数量")
     
     args = parser.parse_args()
     
@@ -109,8 +152,8 @@ def main():
     print("📥 下载小红书图片")
     print("=" * 60)
     
-    IMAGES_DIR = args.output_dir
-    IMAGES_DIR.mkdir(parents=True, exist_ok=True)
+    output_dir = args.output_dir
+    output_dir.mkdir(parents=True, exist_ok=True)
     
     downloaded = []
     
@@ -125,23 +168,24 @@ def main():
             print(f"  找到 {len(urls)} 个图片链接")
             
             for url in urls[:args.count]:
-                path = download_image(url, IMAGES_DIR, md_file.stem)
+                path = download_image(url, output_dir, md_file.stem)
                 if path:
                     downloaded.append(path)
     
     # 模式 2: 从热点分析下载
     if args.topic:
         print(f"\n🎯 主题：{args.topic}")
-        topic_downloaded = download_images_for_topic(args.topic, args.count)
+        topic_downloaded = download_images_for_topic(args.topic, args.count, output_dir)
         downloaded.extend(topic_downloaded)
     
     print("\n" + "=" * 60)
     print(f"✅ 完成！共下载 {len(downloaded)} 张图片")
-    print(f"📂 位置：{IMAGES_DIR}")
+    print(f"📂 位置：{output_dir}")
     
     if downloaded:
         print("\n💡 下一步:")
-        print(f"   python scripts/01_analyze_images.py --images-dir {IMAGES_DIR} --topic \"{args.topic or 'xxx'}\"")
+        topic_str = args.topic or 'xxx'
+        print(f"   python scripts/01_analyze_images.py --images-dir {output_dir} --topic \"{topic_str}\"")
 
 
 if __name__ == "__main__":
