@@ -1248,5 +1248,68 @@
       "recommendations": []
     }
   ],
-  "topic": "测试"
+  "topic": "测试",
+  "images": [
+    {
+      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_20250121211120.jpg",
+      "theme": "测试",
+      "type": "image",
+      "source": "local"
+    },
+    {
+      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_202501212111192.jpg",
+      "theme": "测试",
+      "type": "image",
+      "source": "local"
+    },
+    {
+      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_20250121211117.jpg",
+      "theme": "测试",
+      "type": "image",
+      "source": "local"
+    },
+    {
+      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_20250121211118.jpg",
+      "theme": "测试",
+      "type": "image",
+      "source": "local"
+    },
+    {
+      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_20250121211116.jpg",
+      "theme": "测试",
+      "type": "image",
+      "source": "local"
+    },
+    {
+      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_202501212111201.jpg",
+      "theme": "测试",
+      "type": "image",
+      "source": "local"
+    },
+    {
+      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_202501212111191.jpg",
+      "theme": "测试",
+      "type": "image",
+      "source": "local"
+    },
+    {
+      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_202501212111181.jpg",
+      "theme": "测试",
+      "type": "image",
+      "source": "local"
+    },
+    {
+      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_20250121211110.jpg",
+      "theme": "测试",
+      "type": "image",
+      "source": "local"
+    },
+    {
+      "file_path": "/home/tbxsx/XHS_Post/local_images/微信图片_202501212111152.jpg",
+      "theme": "测试",
+      "type": "image",
+      "source": "local"
+    }
+  ],
+  "image_count": 10
 }

@@ -298,7 +298,8 @@ def generate_titles_for_topic(topic: str, features: dict, count: int = 5, topic_
         # 从高赞标题中随机选择与主题相关的
         for title in features["titles"]:
             if is_title_relevant(title, topic_keywords):
-                if title not in titles:
+                # 限制标题长度（小红书建议 20 字以内，最多 30 字）
+                if title not in titles and 5 <= len(title) <= 30:
                     titles.append(title)
                     if len(titles) >= count:
                         break
@@ -350,8 +351,9 @@ def generate_titles_for_topic(topic: str, features: dict, count: int = 5, topic_
         title = re.sub(r'\{[^}]+\}', '', title)
         title = title.strip()
 
-        # 过滤掉过短或语法不完整的标题
-        if title and len(title) >= 5 and title not in titles:
+        # 过滤掉过短或过长的标题（小红书标题建议 20 字以内）
+        # 过滤掉语法不完整的标题
+        if title and 5 <= len(title) <= 30 and title not in titles:
             titles.append(title)
 
     return titles[:count]
